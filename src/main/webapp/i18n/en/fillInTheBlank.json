@@ -1,0 +1,28 @@
+{
+  "skillVerifyApp": {
+    "fillInTheBlank": {
+      "home": {
+        "title": "Fill In The Blanks",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Fill In The Blank",
+        "createOrEditLabel": "Create or edit a Fill In The Blank",
+        "notFound": "No Fill In The Blanks found"
+      },
+      "created": "A new Fill In The Blank is created with identifier {{ param }}",
+      "updated": "A Fill In The Blank is updated with identifier {{ param }}",
+      "deleted": "A Fill In The Blank is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Fill In The Blank {{ id }}?"
+      },
+      "detail": {
+        "title": "Fill In The Blank"
+      },
+      "id": "ID",
+      "textWithBlanks": "Text With Blanks",
+      "blankIndex": "Blank Index",
+      "correctAnswer": "Correct Answer",
+      "caseSensitive": "Case Sensitive",
+      "question": "Question"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "annotations": {
+    "changelogDate": "20260202134854"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "startedAt",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "submittedAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "SubmissionStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "NOT_STARTED,IN_PROGRESS,SUBMITTED,EVALUATED"
+    },
+    {
+      "fieldName": "score",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totalPoints",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "timeSpent",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "ExamSession",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "candidateAnswer",
+      "otherEntityRelationshipName": "examSession",
+      "relationshipName": "candidateAnswers",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "candidate",
+      "otherEntityRelationshipName": "examSessions",
+      "relationshipName": "candidate",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityName": "exam",
+      "otherEntityRelationshipName": "examSessions",
+      "relationshipName": "exam",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

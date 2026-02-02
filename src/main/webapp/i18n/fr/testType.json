@@ -1,0 +1,9 @@
+{
+  "skillVerifyApp": {
+    "TestType": {
+      "null": "",
+      "RECRUITMENT": "RECRUITMENT",
+      "PLACEMENT": "PLACEMENT"
+    }
+  }
+}

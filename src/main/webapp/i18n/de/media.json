@@ -1,0 +1,31 @@
+{
+  "skillVerifyApp": {
+    "media": {
+      "home": {
+        "title": "Media",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Media erstellen",
+        "createOrEditLabel": "Media erstellen oder bearbeiten",
+        "notFound": "Keine Media gefunden"
+      },
+      "created": "Media erstellt mit ID {{ param }}",
+      "updated": "Media aktualisiert mit ID {{ param }}",
+      "deleted": "Media gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Media {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Media"
+      },
+      "id": "ID",
+      "type": "Type",
+      "s3Key": "S 3 Key",
+      "s3Url": "S 3 Url",
+      "fileName": "File Name",
+      "fileSize": "File Size",
+      "mimeType": "Mime Type",
+      "uploadedAt": "Uploaded At",
+      "question": "Question"
+    }
+  }
+}

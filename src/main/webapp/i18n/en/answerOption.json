@@ -1,0 +1,27 @@
+{
+  "skillVerifyApp": {
+    "answerOption": {
+      "home": {
+        "title": "Answer Options",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Answer Option",
+        "createOrEditLabel": "Create or edit a Answer Option",
+        "notFound": "No Answer Options found"
+      },
+      "created": "A new Answer Option is created with identifier {{ param }}",
+      "updated": "A Answer Option is updated with identifier {{ param }}",
+      "deleted": "A Answer Option is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Answer Option {{ id }}?"
+      },
+      "detail": {
+        "title": "Answer Option"
+      },
+      "id": "ID",
+      "content": "Content",
+      "isCorrect": "Is Correct",
+      "orderIndex": "Order Index",
+      "question": "Question"
+    }
+  }
+}

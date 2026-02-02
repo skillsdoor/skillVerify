@@ -12,7 +12,33 @@
     <property name="timeType" value="time(6)" dbms="mysql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134844_added_entity_Recruiter.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134845_added_entity_Candidate.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134846_added_entity_TrainingProvider.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134847_added_entity_Exam.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134848_added_entity_Exercise.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134849_added_entity_Question.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134850_added_entity_Media.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134851_added_entity_AnswerOption.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134852_added_entity_FillInTheBlank.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134853_added_entity_BindList.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134854_added_entity_ExamSession.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134855_added_entity_CandidateAnswer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134856_added_entity_BindListAnswer.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20260202134844_added_entity_constraints_Recruiter.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134845_added_entity_constraints_Candidate.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134846_added_entity_constraints_TrainingProvider.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134847_added_entity_constraints_Exam.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134848_added_entity_constraints_Exercise.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134849_added_entity_constraints_Question.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134850_added_entity_constraints_Media.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134851_added_entity_constraints_AnswerOption.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134852_added_entity_constraints_FillInTheBlank.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134853_added_entity_constraints_BindList.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134854_added_entity_constraints_ExamSession.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134855_added_entity_constraints_CandidateAnswer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20260202134856_added_entity_constraints_BindListAnswer.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

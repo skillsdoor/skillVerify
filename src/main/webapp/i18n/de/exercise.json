@@ -1,0 +1,30 @@
+{
+  "skillVerifyApp": {
+    "exercise": {
+      "home": {
+        "title": "Exercises",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Exercise erstellen",
+        "createOrEditLabel": "Exercise erstellen oder bearbeiten",
+        "notFound": "Keine Exercises gefunden"
+      },
+      "created": "Exercise erstellt mit ID {{ param }}",
+      "updated": "Exercise aktualisiert mit ID {{ param }}",
+      "deleted": "Exercise gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Exercise {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Exercise"
+      },
+      "id": "ID",
+      "type": "Type",
+      "title": "Title",
+      "instruction": "Instruction",
+      "points": "Points",
+      "orderIndex": "Order Index",
+      "questions": "Questions",
+      "exam": "Exam"
+    }
+  }
+}

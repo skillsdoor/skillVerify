@@ -1,0 +1,35 @@
+{
+  "skillVerifyApp": {
+    "trainingProvider": {
+      "home": {
+        "title": "Training Providers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Training Provider",
+        "createOrEditLabel": "Create or edit a Training Provider",
+        "notFound": "No Training Providers found"
+      },
+      "created": "A new Training Provider is created with identifier {{ param }}",
+      "updated": "A Training Provider is updated with identifier {{ param }}",
+      "deleted": "A Training Provider is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Training Provider {{ id }}?"
+      },
+      "detail": {
+        "title": "Training Provider"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "Phone",
+      "bio": "Bio",
+      "avatarUrl": "Avatar Url",
+      "organizationName": "Organization Name",
+      "website": "Website",
+      "accreditation": "Accreditation",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "user": "User",
+      "exams": "Exams"
+    }
+  }
+}

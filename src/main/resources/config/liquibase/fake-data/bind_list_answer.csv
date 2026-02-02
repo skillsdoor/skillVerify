@@ -1,0 +1,11 @@
+id;left_item_id;right_item_id;is_correct;candidate_answer_id
+1;11637;10163;true;1
+2;6967;23413;true;2
+3;25025;21413;true;3
+4;4229;9263;true;4
+5;10806;22964;false;5
+6;26821;16188;false;6
+7;18839;31706;true;7
+8;30497;6577;false;8
+9;24484;19535;true;9
+10;31899;3728;true;10

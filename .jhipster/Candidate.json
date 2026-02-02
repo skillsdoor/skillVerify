@@ -1,0 +1,77 @@
+{
+  "annotations": {
+    "changelogDate": "20260202134845"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "firstName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bio",
+      "fieldType": "TextBlob"
+    },
+    {
+      "fieldName": "avatarUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "resumeUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "linkedinUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "githubUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "yearsOfExperience",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "Candidate",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "relationshipName": "user",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required",
+      "relationshipWithBuiltInEntity": true
+    },
+    {
+      "otherEntityName": "examSession",
+      "otherEntityRelationshipName": "candidate",
+      "relationshipName": "examSessions",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,86 @@
+{
+  "annotations": {
+    "changelogDate": "20260202134847"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "TextBlob"
+    },
+    {
+      "fieldName": "duration",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "passingScore",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "ExamStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "DRAFT,PUBLISHED,ARCHIVED"
+    },
+    {
+      "fieldName": "testType",
+      "fieldType": "TestType",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "RECRUITMENT,PLACEMENT"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "publishedAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "Exam",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "exercise",
+      "otherEntityRelationshipName": "exam",
+      "relationshipName": "exercises",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "examSession",
+      "otherEntityRelationshipName": "exam",
+      "relationshipName": "examSessions",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "recruiter",
+      "otherEntityRelationshipName": "exams",
+      "relationshipName": "recruiter",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "trainingProvider",
+      "otherEntityRelationshipName": "exams",
+      "relationshipName": "trainingProvider",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

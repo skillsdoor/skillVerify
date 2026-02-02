@@ -1,0 +1,32 @@
+{
+  "skillVerifyApp": {
+    "examSession": {
+      "home": {
+        "title": "Exam Sessions",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Exam Session erstellen",
+        "createOrEditLabel": "Exam Session erstellen oder bearbeiten",
+        "notFound": "Keine Exam Sessions gefunden"
+      },
+      "created": "Exam Session erstellt mit ID {{ param }}",
+      "updated": "Exam Session aktualisiert mit ID {{ param }}",
+      "deleted": "Exam Session gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Exam Session {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Exam Session"
+      },
+      "id": "ID",
+      "startedAt": "Started At",
+      "submittedAt": "Submitted At",
+      "status": "Status",
+      "score": "Score",
+      "totalPoints": "Total Points",
+      "timeSpent": "Time Spent",
+      "candidateAnswers": "Candidate Answers",
+      "candidate": "Candidate",
+      "exam": "Exam"
+    }
+  }
+}

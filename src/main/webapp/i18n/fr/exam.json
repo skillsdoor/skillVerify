@@ -1,0 +1,36 @@
+{
+  "skillVerifyApp": {
+    "exam": {
+      "home": {
+        "title": "Exams",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Exam",
+        "createOrEditLabel": "Créer ou éditer un Exam",
+        "notFound": "Aucun Exam trouvé"
+      },
+      "created": "Un nouveau Exam a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Exam avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Exam avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Exam {{ id }} ?"
+      },
+      "detail": {
+        "title": "Exam"
+      },
+      "id": "ID",
+      "title": "Title",
+      "description": "Description",
+      "duration": "Duration",
+      "passingScore": "Passing Score",
+      "status": "Status",
+      "testType": "Test Type",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "publishedAt": "Published At",
+      "exercises": "Exercises",
+      "examSessions": "Exam Sessions",
+      "recruiter": "Recruiter",
+      "trainingProvider": "Training Provider"
+    }
+  }
+}

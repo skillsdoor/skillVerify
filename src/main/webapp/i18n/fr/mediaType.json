@@ -1,0 +1,11 @@
+{
+  "skillVerifyApp": {
+    "MediaType": {
+      "null": "",
+      "IMAGE": "IMAGE",
+      "VIDEO": "VIDEO",
+      "AUDIO": "AUDIO",
+      "DOCUMENT": "DOCUMENT"
+    }
+  }
+}

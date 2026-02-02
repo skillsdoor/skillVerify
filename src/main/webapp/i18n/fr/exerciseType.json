@@ -1,0 +1,12 @@
+{
+  "skillVerifyApp": {
+    "ExerciseType": {
+      "null": "",
+      "QCM": "QCM",
+      "FILL_IN_THE_BLANK": "FILL_IN_THE_BLANK",
+      "BIND_LISTS": "BIND_LISTS",
+      "TRUE_FALSE": "TRUE_FALSE",
+      "SHORT_ANSWER": "SHORT_ANSWER"
+    }
+  }
+}

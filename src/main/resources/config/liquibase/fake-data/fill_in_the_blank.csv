@@ -1,0 +1,11 @@
+id;text_with_blanks;blank_index;correct_answer;case_sensitive;question_id
+1;../fake-data/blob/hipster.txt;15773;fixed even;true;1
+2;../fake-data/blob/hipster.txt;29715;incidentally;true;2
+3;../fake-data/blob/hipster.txt;20812;jury radiant down;false;3
+4;../fake-data/blob/hipster.txt;2307;boo miserable since;true;4
+5;../fake-data/blob/hipster.txt;19011;legislature failing;true;5
+6;../fake-data/blob/hipster.txt;9767;wisely cumbersome;true;6
+7;../fake-data/blob/hipster.txt;10768;reword gosh;false;7
+8;../fake-data/blob/hipster.txt;29841;cassava versus spook;false;8
+9;../fake-data/blob/hipster.txt;3831;gadzooks hunt;true;9
+10;../fake-data/blob/hipster.txt;6220;voluntarily how;true;10

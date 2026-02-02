@@ -1,0 +1,35 @@
+{
+  "skillVerifyApp": {
+    "recruiter": {
+      "home": {
+        "title": "Recruiters",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Recruiter erstellen",
+        "createOrEditLabel": "Recruiter erstellen oder bearbeiten",
+        "notFound": "Keine Recruiters gefunden"
+      },
+      "created": "Recruiter erstellt mit ID {{ param }}",
+      "updated": "Recruiter aktualisiert mit ID {{ param }}",
+      "deleted": "Recruiter gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Recruiter {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Recruiter"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "Phone",
+      "bio": "Bio",
+      "avatarUrl": "Avatar Url",
+      "company": "Company",
+      "position": "Position",
+      "website": "Website",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "user": "User",
+      "exams": "Exams"
+    }
+  }
+}

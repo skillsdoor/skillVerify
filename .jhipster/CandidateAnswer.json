@@ -1,0 +1,58 @@
+{
+  "annotations": {
+    "changelogDate": "20260202134855"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "answerText",
+      "fieldType": "TextBlob"
+    },
+    {
+      "fieldName": "selectedOptionId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "isCorrect",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "pointsAwarded",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "answeredAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "CandidateAnswer",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "bindListAnswer",
+      "otherEntityRelationshipName": "candidateAnswer",
+      "relationshipName": "bindListAnswers",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "examSession",
+      "otherEntityRelationshipName": "candidateAnswers",
+      "relationshipName": "examSession",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityName": "question",
+      "otherEntityRelationshipName": "candidateAnswers",
+      "relationshipName": "question",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

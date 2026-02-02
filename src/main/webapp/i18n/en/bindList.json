@@ -1,0 +1,27 @@
+{
+  "skillVerifyApp": {
+    "bindList": {
+      "home": {
+        "title": "Bind Lists",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Bind List",
+        "createOrEditLabel": "Create or edit a Bind List",
+        "notFound": "No Bind Lists found"
+      },
+      "created": "A new Bind List is created with identifier {{ param }}",
+      "updated": "A Bind List is updated with identifier {{ param }}",
+      "deleted": "A Bind List is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bind List {{ id }}?"
+      },
+      "detail": {
+        "title": "Bind List"
+      },
+      "id": "ID",
+      "leftItem": "Left Item",
+      "rightItem": "Right Item",
+      "orderIndex": "Order Index",
+      "question": "Question"
+    }
+  }
+}

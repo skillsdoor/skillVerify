@@ -1,0 +1,33 @@
+{
+  "skillVerifyApp": {
+    "question": {
+      "home": {
+        "title": "Questions",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Question erstellen",
+        "createOrEditLabel": "Question erstellen oder bearbeiten",
+        "notFound": "Keine Questions gefunden"
+      },
+      "created": "Question erstellt mit ID {{ param }}",
+      "updated": "Question aktualisiert mit ID {{ param }}",
+      "deleted": "Question gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Question {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Question"
+      },
+      "id": "ID",
+      "content": "Content",
+      "explanation": "Explanation",
+      "points": "Points",
+      "orderIndex": "Order Index",
+      "media": "Media",
+      "answerOptions": "Answer Options",
+      "fillInTheBlanks": "Fill In The Blanks",
+      "bindLists": "Bind Lists",
+      "candidateAnswers": "Candidate Answers",
+      "exercise": "Exercise"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "annotations": {
+    "changelogDate": "20260202134856"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "leftItemId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "rightItemId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "isCorrect",
+      "fieldType": "Boolean"
+    }
+  ],
+  "name": "BindListAnswer",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "candidateAnswer",
+      "otherEntityRelationshipName": "bindListAnswers",
+      "relationshipName": "candidateAnswer",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,20 @@
+import dayjs from 'dayjs';
+import { IUser } from 'app/shared/model/user.model';
+
+export interface ICandidate {
+  id?: number;
+  firstName?: string;
+  lastName?: string;
+  phone?: string | null;
+  bio?: string | null;
+  avatarUrl?: string | null;
+  resumeUrl?: string | null;
+  linkedinUrl?: string | null;
+  githubUrl?: string | null;
+  yearsOfExperience?: number | null;
+  createdAt?: dayjs.Dayjs | null;
+  updatedAt?: dayjs.Dayjs | null;
+  user?: IUser;
+}
+
+export const defaultValue: Readonly<ICandidate> = {};

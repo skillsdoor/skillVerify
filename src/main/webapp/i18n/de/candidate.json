@@ -1,0 +1,36 @@
+{
+  "skillVerifyApp": {
+    "candidate": {
+      "home": {
+        "title": "Candidates",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Candidate erstellen",
+        "createOrEditLabel": "Candidate erstellen oder bearbeiten",
+        "notFound": "Keine Candidates gefunden"
+      },
+      "created": "Candidate erstellt mit ID {{ param }}",
+      "updated": "Candidate aktualisiert mit ID {{ param }}",
+      "deleted": "Candidate gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Candidate {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Candidate"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "Phone",
+      "bio": "Bio",
+      "avatarUrl": "Avatar Url",
+      "resumeUrl": "Resume Url",
+      "linkedinUrl": "Linkedin Url",
+      "githubUrl": "Github Url",
+      "yearsOfExperience": "Years Of Experience",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "user": "User",
+      "examSessions": "Exam Sessions"
+    }
+  }
+}

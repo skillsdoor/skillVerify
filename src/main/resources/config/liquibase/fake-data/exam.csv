@@ -1,0 +1,11 @@
+id;title;description;duration;passing_score;status;test_type;created_at;updated_at;published_at
+1;ew er thread;../fake-data/blob/hipster.txt;5513;25226;PUBLISHED;RECRUITMENT;2026-02-02T10:10:44;2026-02-02T03:17:30;2026-02-01T19:46:24
+2;signature;../fake-data/blob/hipster.txt;271;24214;PUBLISHED;RECRUITMENT;2026-02-01T18:25:02;2026-02-02T00:30:39;2026-02-01T15:33:51
+3;than unique;../fake-data/blob/hipster.txt;24014;3454;DRAFT;RECRUITMENT;2026-02-02T06:44:32;2026-02-02T09:27:33;2026-02-02T12:09:33
+4;ill-fated sleepy huzzah;../fake-data/blob/hipster.txt;2931;12167;DRAFT;PLACEMENT;2026-02-02T01:31:16;2026-02-02T04:54:37;2026-02-01T18:57:31
+5;searchingly;../fake-data/blob/hipster.txt;32514;4409;DRAFT;RECRUITMENT;2026-02-01T18:21:15;2026-02-02T06:11:15;2026-02-02T11:41:03
+6;since describe;../fake-data/blob/hipster.txt;3686;298;PUBLISHED;RECRUITMENT;2026-02-02T06:19:31;2026-02-02T03:06:17;2026-02-01T23:34:34
+7;prime under;../fake-data/blob/hipster.txt;14895;655;ARCHIVED;PLACEMENT;2026-02-02T13:03:18;2026-02-01T13:57:40;2026-02-01T18:51:07
+8;deceivingly;../fake-data/blob/hipster.txt;19316;16822;ARCHIVED;PLACEMENT;2026-02-01T22:10:23;2026-02-02T03:55:34;2026-02-01T15:04:21
+9;better yet meanwhile;../fake-data/blob/hipster.txt;12110;11621;ARCHIVED;RECRUITMENT;2026-02-01T21:10:40;2026-02-02T09:39:41;2026-02-02T12:34:13
+10;as honored oof;../fake-data/blob/hipster.txt;26774;17886;ARCHIVED;PLACEMENT;2026-02-02T05:24:30;2026-02-02T00:04:23;2026-02-02T00:20:10

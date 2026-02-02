@@ -1,0 +1,31 @@
+{
+  "skillVerifyApp": {
+    "candidateAnswer": {
+      "home": {
+        "title": "CandidateAnswers",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Candidate Answer",
+        "createOrEditLabel": "Créer ou éditer un Candidate Answer",
+        "notFound": "Aucun Candidate Answer trouvé"
+      },
+      "created": "Un nouveau Candidate Answer a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Candidate Answer avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Candidate Answer avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Candidate Answer {{ id }} ?"
+      },
+      "detail": {
+        "title": "Candidate Answer"
+      },
+      "id": "ID",
+      "answerText": "Answer Text",
+      "selectedOptionId": "Selected Option Id",
+      "isCorrect": "Is Correct",
+      "pointsAwarded": "Points Awarded",
+      "answeredAt": "Answered At",
+      "bindListAnswers": "Bind List Answers",
+      "examSession": "Exam Session",
+      "question": "Question"
+    }
+  }
+}

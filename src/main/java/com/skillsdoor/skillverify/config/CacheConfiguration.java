@@ -50,6 +50,32 @@ public class CacheConfiguration {
             createCache(cm, com.skillsdoor.skillverify.domain.User.class.getName());
             createCache(cm, com.skillsdoor.skillverify.domain.Authority.class.getName());
             createCache(cm, com.skillsdoor.skillverify.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.skillsdoor.skillverify.domain.Recruiter.class.getName());
+            createCache(cm, com.skillsdoor.skillverify.domain.Recruiter.class.getName() + ".exams");
+            createCache(cm, com.skillsdoor.skillverify.domain.Candidate.class.getName());
+            createCache(cm, com.skillsdoor.skillverify.domain.Candidate.class.getName() + ".examSessions");
+            createCache(cm, com.skillsdoor.skillverify.domain.TrainingProvider.class.getName());
+            createCache(cm, com.skillsdoor.skillverify.domain.TrainingProvider.class.getName() + ".exams");
+            createCache(cm, com.skillsdoor.skillverify.domain.Exam.class.getName());
+            createCache(cm, com.skillsdoor.skillverify.domain.Exam.class.getName() + ".exercises");
+            createCache(cm, com.skillsdoor.skillverify.domain.Exam.class.getName() + ".examSessions");
+            createCache(cm, com.skillsdoor.skillverify.domain.Exercise.class.getName());
+            createCache(cm, com.skillsdoor.skillverify.domain.Exercise.class.getName() + ".questions");
+            createCache(cm, com.skillsdoor.skillverify.domain.Question.class.getName());
+            createCache(cm, com.skillsdoor.skillverify.domain.Question.class.getName() + ".media");
+            createCache(cm, com.skillsdoor.skillverify.domain.Question.class.getName() + ".answerOptions");
+            createCache(cm, com.skillsdoor.skillverify.domain.Question.class.getName() + ".fillInTheBlanks");
+            createCache(cm, com.skillsdoor.skillverify.domain.Question.class.getName() + ".bindLists");
+            createCache(cm, com.skillsdoor.skillverify.domain.Question.class.getName() + ".candidateAnswers");
+            createCache(cm, com.skillsdoor.skillverify.domain.Media.class.getName());
+            createCache(cm, com.skillsdoor.skillverify.domain.AnswerOption.class.getName());
+            createCache(cm, com.skillsdoor.skillverify.domain.FillInTheBlank.class.getName());
+            createCache(cm, com.skillsdoor.skillverify.domain.BindList.class.getName());
+            createCache(cm, com.skillsdoor.skillverify.domain.ExamSession.class.getName());
+            createCache(cm, com.skillsdoor.skillverify.domain.ExamSession.class.getName() + ".candidateAnswers");
+            createCache(cm, com.skillsdoor.skillverify.domain.CandidateAnswer.class.getName());
+            createCache(cm, com.skillsdoor.skillverify.domain.CandidateAnswer.class.getName() + ".bindListAnswers");
+            createCache(cm, com.skillsdoor.skillverify.domain.BindListAnswer.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

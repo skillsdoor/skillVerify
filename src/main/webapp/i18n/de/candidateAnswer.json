@@ -1,0 +1,31 @@
+{
+  "skillVerifyApp": {
+    "candidateAnswer": {
+      "home": {
+        "title": "Candidate Answers",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Candidate Answer erstellen",
+        "createOrEditLabel": "Candidate Answer erstellen oder bearbeiten",
+        "notFound": "Keine Candidate Answers gefunden"
+      },
+      "created": "Candidate Answer erstellt mit ID {{ param }}",
+      "updated": "Candidate Answer aktualisiert mit ID {{ param }}",
+      "deleted": "Candidate Answer gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Candidate Answer {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Candidate Answer"
+      },
+      "id": "ID",
+      "answerText": "Answer Text",
+      "selectedOptionId": "Selected Option Id",
+      "isCorrect": "Is Correct",
+      "pointsAwarded": "Points Awarded",
+      "answeredAt": "Answered At",
+      "bindListAnswers": "Bind List Answers",
+      "examSession": "Exam Session",
+      "question": "Question"
+    }
+  }
+}

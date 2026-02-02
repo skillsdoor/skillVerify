@@ -1,0 +1,181 @@
+// Entities for Recruitment Platform
+
+enum ExamStatus {
+  DRAFT, PUBLISHED, ARCHIVED
+}
+
+enum TestType {
+  RECRUITMENT, PLACEMENT
+}
+
+enum ExerciseType {
+  QCM, FILL_IN_THE_BLANK, BIND_LISTS, TRUE_FALSE, SHORT_ANSWER
+}
+
+enum MediaType {
+  IMAGE, VIDEO, AUDIO, DOCUMENT
+}
+
+enum SubmissionStatus {
+  NOT_STARTED, IN_PROGRESS, SUBMITTED, EVALUATED
+}
+
+// Recruiter
+entity Recruiter {
+  firstName String required
+  lastName String required
+  phone String
+  bio TextBlob
+  avatarUrl String
+  company String required
+  position String
+  website String
+  createdAt Instant
+  updatedAt Instant
+}
+
+// Candidate
+entity Candidate {
+  firstName String required
+  lastName String required
+  phone String
+  bio TextBlob
+  avatarUrl String
+  resumeUrl String
+  linkedinUrl String
+  githubUrl String
+  yearsOfExperience Integer
+  createdAt Instant
+  updatedAt Instant
+}
+
+// Training Provider
+entity TrainingProvider {
+  firstName String required
+  lastName String required
+  phone String
+  bio TextBlob
+  avatarUrl String
+  organizationName String required
+  website String
+  accreditation String
+  createdAt Instant
+  updatedAt Instant
+}
+
+// Exam
+entity Exam {
+  title String required
+  description TextBlob
+  duration Integer required // in minutes
+  passingScore Integer required
+  status ExamStatus required
+  testType TestType required
+  createdAt Instant
+  updatedAt Instant
+  publishedAt Instant
+}
+
+// Exercise
+entity Exercise {
+  type ExerciseType required
+  title String required
+  instruction TextBlob
+  points Integer required
+  orderIndex Integer required
+}
+
+// Question
+entity Question {
+  content TextBlob required
+  explanation TextBlob
+  points Integer required
+  orderIndex Integer required
+}
+
+// Media attached to questions
+entity Media {
+  type MediaType required
+  s3Key String required
+  s3Url String required
+  fileName String required
+  fileSize Long
+  mimeType String
+  uploadedAt Instant
+}
+
+// QCM Answer Options
+entity AnswerOption {
+  content String required
+  isCorrect Boolean required
+  orderIndex Integer required
+}
+
+// Fill in the Blank
+entity FillInTheBlank {
+  textWithBlanks TextBlob required // text with {{blank}} markers
+  blankIndex Integer required
+  correctAnswer String required
+  caseSensitive Boolean required
+}
+
+// Bind Lists (matching pairs)
+entity BindList {
+  leftItem String required
+  rightItem String required
+  orderIndex Integer required
+}
+
+// Exam Session (candidate taking exam)
+entity ExamSession {
+  startedAt Instant required
+  submittedAt Instant
+  status SubmissionStatus required
+  score Integer
+  totalPoints Integer
+  timeSpent Integer // in seconds
+}
+
+// Candidate Answers
+entity CandidateAnswer {
+  answerText TextBlob
+  selectedOptionId Long
+  isCorrect Boolean
+  pointsAwarded Integer
+  answeredAt Instant
+}
+
+// Bind List Answer
+entity BindListAnswer {
+  leftItemId Long required
+  rightItemId Long required
+  isCorrect Boolean
+}
+
+// Relationships
+
+relationship OneToOne {
+  Recruiter{user(login) required} to User with builtInEntity
+  Candidate{user(login) required} to User with builtInEntity
+  TrainingProvider{user(login) required} to User with builtInEntity
+}
+
+relationship OneToMany {
+  Recruiter{exams} to Exam{recruiter}
+  TrainingProvider{exams} to Exam{trainingProvider}
+  Exam{exercises} to Exercise{exam required}
+  Exercise{questions} to Question{exercise required}
+  Question{media} to Media{question}
+  Question{answerOptions} to AnswerOption{question required}
+  Question{fillInTheBlanks} to FillInTheBlank{question required}
+  Question{bindLists} to BindList{question required}
+  Candidate{examSessions} to ExamSession{candidate required}
+  Exam{examSessions} to ExamSession{exam required}
+  ExamSession{candidateAnswers} to CandidateAnswer{examSession required}
+  Question{candidateAnswers} to CandidateAnswer{question required}
+  CandidateAnswer{bindListAnswers} to BindListAnswer{candidateAnswer required}
+}
+
+dto * with mapstruct
+paginate * with pagination
+service all with serviceImpl

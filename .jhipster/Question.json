@@ -1,0 +1,77 @@
+{
+  "annotations": {
+    "changelogDate": "20260202134849"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "content",
+      "fieldType": "TextBlob",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "explanation",
+      "fieldType": "TextBlob"
+    },
+    {
+      "fieldName": "points",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "orderIndex",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Question",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "media",
+      "otherEntityRelationshipName": "question",
+      "relationshipName": "media",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "answerOption",
+      "otherEntityRelationshipName": "question",
+      "relationshipName": "answerOptions",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "fillInTheBlank",
+      "otherEntityRelationshipName": "question",
+      "relationshipName": "fillInTheBlanks",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "bindList",
+      "otherEntityRelationshipName": "question",
+      "relationshipName": "bindLists",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "candidateAnswer",
+      "otherEntityRelationshipName": "question",
+      "relationshipName": "candidateAnswers",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "exercise",
+      "otherEntityRelationshipName": "questions",
+      "relationshipName": "exercise",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

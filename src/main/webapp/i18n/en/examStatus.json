@@ -1,0 +1,10 @@
+{
+  "skillVerifyApp": {
+    "ExamStatus": {
+      "null": "",
+      "DRAFT": "DRAFT",
+      "PUBLISHED": "PUBLISHED",
+      "ARCHIVED": "ARCHIVED"
+    }
+  }
+}

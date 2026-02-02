@@ -7,7 +7,20 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entités",
-        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
+        "recruiter": "Recruiter",
+        "candidate": "Candidate",
+        "trainingProvider": "Training Provider",
+        "exam": "Exam",
+        "exercise": "Exercise",
+        "question": "Question",
+        "media": "Media",
+        "answerOption": "Answer Option",
+        "fillInTheBlank": "Fill In The Blank",
+        "bindList": "Bind List",
+        "examSession": "Exam Session",
+        "candidateAnswer": "Candidate Answer",
+        "bindListAnswer": "Bind List Answer"
       },
       "account": {
         "main": "Compte",
