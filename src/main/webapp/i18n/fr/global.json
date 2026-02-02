@@ -20,7 +20,13 @@
         "bindList": "Bind List",
         "examSession": "Exam Session",
         "candidateAnswer": "Candidate Answer",
-        "bindListAnswer": "Bind List Answer"
+        "bindListAnswer": "Bind List Answer",
+        "qcmOption": "Qcm Option",
+        "blankSpace": "Blank Space",
+        "listItem": "List Item",
+        "qcmAnswer": "Qcm Answer",
+        "blankAnswer": "Blank Answer",
+        "bindAnswer": "Bind Answer"
       },
       "account": {
         "main": "Compte",

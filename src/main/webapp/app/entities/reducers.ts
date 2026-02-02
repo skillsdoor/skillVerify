@@ -11,6 +11,12 @@ import bindList from 'app/entities/bind-list/bind-list.reducer';
 import examSession from 'app/entities/exam-session/exam-session.reducer';
 import candidateAnswer from 'app/entities/candidate-answer/candidate-answer.reducer';
 import bindListAnswer from 'app/entities/bind-list-answer/bind-list-answer.reducer';
+import qcmOption from 'app/entities/qcm-option/qcm-option.reducer';
+import blankSpace from 'app/entities/blank-space/blank-space.reducer';
+import listItem from 'app/entities/list-item/list-item.reducer';
+import qcmAnswer from 'app/entities/qcm-answer/qcm-answer.reducer';
+import blankAnswer from 'app/entities/blank-answer/blank-answer.reducer';
+import bindAnswer from 'app/entities/bind-answer/bind-answer.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const entitiesReducers = {
@@ -27,6 +33,12 @@ const entitiesReducers = {
   examSession,
   candidateAnswer,
   bindListAnswer,
+  qcmOption,
+  blankSpace,
+  listItem,
+  qcmAnswer,
+  blankAnswer,
+  bindAnswer,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
 };
 

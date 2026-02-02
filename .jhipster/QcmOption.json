@@ -1,0 +1,45 @@
+{
+  "annotations": {
+    "changelogDate": "20260202165235"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "content",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "isCorrect",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "orderIndex",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "QcmOption",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "qcmAnswer",
+      "otherEntityRelationshipName": "qcmOption",
+      "relationshipName": "qcmAnswers",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "exercise",
+      "otherEntityRelationshipName": "qcmOptions",
+      "relationshipName": "exercise",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

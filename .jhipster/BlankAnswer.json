@@ -1,0 +1,40 @@
+{
+  "annotations": {
+    "changelogDate": "20260202165239"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "answerText",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "isCorrect",
+      "fieldType": "Boolean"
+    }
+  ],
+  "name": "BlankAnswer",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "candidateAnswer",
+      "otherEntityRelationshipName": "blankAnswers",
+      "relationshipName": "candidateAnswer",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityName": "blankSpace",
+      "otherEntityRelationshipName": "blankAnswers",
+      "relationshipName": "blankSpace",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

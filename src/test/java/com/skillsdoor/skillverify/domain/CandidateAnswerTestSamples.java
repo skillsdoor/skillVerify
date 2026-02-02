@@ -11,17 +11,14 @@ public class CandidateAnswerTestSamples {
     private static final AtomicInteger intCount = new AtomicInteger(random.nextInt() + (2 * Short.MAX_VALUE));
 
     public static CandidateAnswer getCandidateAnswerSample1() {
-        return new CandidateAnswer().id(1L).selectedOptionId(1L).pointsAwarded(1);
+        return new CandidateAnswer().id(1L).pointsAwarded(1);
     }
 
     public static CandidateAnswer getCandidateAnswerSample2() {
-        return new CandidateAnswer().id(2L).selectedOptionId(2L).pointsAwarded(2);
+        return new CandidateAnswer().id(2L).pointsAwarded(2);
     }
 
     public static CandidateAnswer getCandidateAnswerRandomSampleGenerator() {
-        return new CandidateAnswer()
-            .id(longCount.incrementAndGet())
-            .selectedOptionId(longCount.incrementAndGet())
-            .pointsAwarded(intCount.incrementAndGet());
+        return new CandidateAnswer().id(longCount.incrementAndGet()).pointsAwarded(intCount.incrementAndGet());
     }
 }

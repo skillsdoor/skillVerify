@@ -32,6 +32,8 @@ public class MediaDTO implements Serializable {
 
     private Instant uploadedAt;
 
+    private ExerciseDTO exercise;
+
     private QuestionDTO question;
 
     public Long getId() {
@@ -98,6 +100,14 @@ public class MediaDTO implements Serializable {
         this.uploadedAt = uploadedAt;
     }
 
+    public ExerciseDTO getExercise() {
+        return exercise;
+    }
+
+    public void setExercise(ExerciseDTO exercise) {
+        this.exercise = exercise;
+    }
+
     public QuestionDTO getQuestion() {
         return question;
     }
@@ -139,6 +149,7 @@ public class MediaDTO implements Serializable {
             ", fileSize=" + getFileSize() +
             ", mimeType='" + getMimeType() + "'" +
             ", uploadedAt='" + getUploadedAt() + "'" +
+            ", exercise=" + getExercise() +
             ", question=" + getQuestion() +
             "}";
     }

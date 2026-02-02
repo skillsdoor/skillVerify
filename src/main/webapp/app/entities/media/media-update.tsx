@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
+import { getEntities as getExercises } from 'app/entities/exercise/exercise.reducer';
 import { getEntities as getQuestions } from 'app/entities/question/question.reducer';
 import { MediaType } from 'app/shared/model/enumerations/media-type.model';
 import { createEntity, getEntity, reset, updateEntity } from './media.reducer';
@@ -19,6 +20,7 @@ export const MediaUpdate = () => {
   const { id } = useParams<'id'>();
   const isNew = id === undefined;
 
+  const exercises = useAppSelector(state => state.exercise.entities);
   const questions = useAppSelector(state => state.question.entities);
   const mediaEntity = useAppSelector(state => state.media.entity);
   const loading = useAppSelector(state => state.media.loading);
@@ -37,6 +39,7 @@ export const MediaUpdate = () => {
       dispatch(getEntity(id));
     }
 
+    dispatch(getExercises({}));
     dispatch(getQuestions({}));
   }, []);
 
@@ -58,6 +61,7 @@ export const MediaUpdate = () => {
     const entity = {
       ...mediaEntity,
       ...values,
+      exercise: exercises.find(it => it.id.toString() === values.exercise?.toString()),
       question: questions.find(it => it.id.toString() === values.question?.toString()),
     };
 
@@ -77,6 +81,7 @@ export const MediaUpdate = () => {
           type: 'IMAGE',
           ...mediaEntity,
           uploadedAt: convertDateTimeFromServer(mediaEntity.uploadedAt),
+          exercise: mediaEntity?.exercise?.id,
           question: mediaEntity?.question?.id,
         };
 
@@ -164,6 +169,22 @@ export const MediaUpdate = () => {
                 type="datetime-local"
                 placeholder="YYYY-MM-DD HH:mm"
               />
+              <ValidatedField
+                id="media-exercise"
+                name="exercise"
+                data-cy="exercise"
+                label={translate('skillVerifyApp.media.exercise')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {exercises
+                  ? exercises.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
               <ValidatedField
                 id="media-question"
                 name="question"

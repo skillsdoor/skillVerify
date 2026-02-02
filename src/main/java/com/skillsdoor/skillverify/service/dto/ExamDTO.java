@@ -44,6 +44,8 @@ public class ExamDTO implements Serializable {
 
     private TrainingProviderDTO trainingProvider;
 
+    private java.util.List<ExerciseDTO> exercises;
+
     public Long getId() {
         return id;
     }
@@ -138,6 +140,14 @@ public class ExamDTO implements Serializable {
 
     public void setTrainingProvider(TrainingProviderDTO trainingProvider) {
         this.trainingProvider = trainingProvider;
+    }
+
+    public java.util.List<ExerciseDTO> getExercises() {
+        return exercises;
+    }
+
+    public void setExercises(java.util.List<ExerciseDTO> exercises) {
+        this.exercises = exercises;
     }
 
     @Override

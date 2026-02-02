@@ -19,13 +19,16 @@
       },
       "id": "ID",
       "answerText": "Answer Text",
-      "selectedOptionId": "Selected Option Id",
       "isCorrect": "Is Correct",
       "pointsAwarded": "Points Awarded",
       "answeredAt": "Answered At",
-      "bindListAnswers": "Bind List Answers",
+      "qcmAnswers": "Qcm Answers",
+      "blankAnswers": "Blank Answers",
+      "bindAnswers": "Bind Answers",
       "examSession": "Exam Session",
-      "question": "Question"
+      "exercise": "Exercise",
+      "question": "Question",
+      "bindListAnswers": "Bind List Answers"
     }
   }
 }

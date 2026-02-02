@@ -400,7 +400,11 @@ class ExamSessionResourceIT {
         ExamSession partialUpdatedExamSession = new ExamSession();
         partialUpdatedExamSession.setId(examSession.getId());
 
-        partialUpdatedExamSession.status(UPDATED_STATUS).score(UPDATED_SCORE).totalPoints(UPDATED_TOTAL_POINTS);
+        partialUpdatedExamSession
+            .startedAt(UPDATED_STARTED_AT)
+            .status(UPDATED_STATUS)
+            .totalPoints(UPDATED_TOTAL_POINTS)
+            .timeSpent(UPDATED_TIME_SPENT);
 
         restExamSessionMockMvc
             .perform(

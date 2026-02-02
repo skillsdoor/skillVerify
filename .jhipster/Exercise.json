@@ -21,6 +21,14 @@
       "fieldType": "TextBlob"
     },
     {
+      "fieldName": "content",
+      "fieldType": "TextBlob"
+    },
+    {
+      "fieldName": "explanation",
+      "fieldType": "TextBlob"
+    },
+    {
       "fieldName": "points",
       "fieldType": "Integer",
       "fieldValidateRules": ["required"]
@@ -35,9 +43,37 @@
   "pagination": "pagination",
   "relationships": [
     {
-      "otherEntityName": "question",
+      "otherEntityName": "media",
       "otherEntityRelationshipName": "exercise",
-      "relationshipName": "questions",
+      "relationshipName": "media",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "qcmOption",
+      "otherEntityRelationshipName": "exercise",
+      "relationshipName": "qcmOptions",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "blankSpace",
+      "otherEntityRelationshipName": "exercise",
+      "relationshipName": "blankSpaces",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "listItem",
+      "otherEntityRelationshipName": "exercise",
+      "relationshipName": "listItems",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "candidateAnswer",
+      "otherEntityRelationshipName": "exercise",
+      "relationshipName": "candidateAnswers",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"
     },

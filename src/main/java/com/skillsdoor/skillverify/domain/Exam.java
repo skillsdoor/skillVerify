@@ -65,7 +65,10 @@ public class Exam implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "exam")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "questions", "exam" }, allowSetters = true)
+    @JsonIgnoreProperties(
+        value = { "media", "qcmOptions", "blankSpaces", "listItems", "candidateAnswers", "exam", "questions" },
+        allowSetters = true
+    )
     private Set<Exercise> exercises = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "exam")

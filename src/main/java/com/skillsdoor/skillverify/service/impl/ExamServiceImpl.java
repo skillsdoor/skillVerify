@@ -1,9 +1,12 @@
 package com.skillsdoor.skillverify.service.impl;
 
 import com.skillsdoor.skillverify.domain.Exam;
+import com.skillsdoor.skillverify.domain.Exercise;
 import com.skillsdoor.skillverify.repository.ExamRepository;
+import com.skillsdoor.skillverify.repository.ExerciseRepository;
 import com.skillsdoor.skillverify.service.ExamService;
 import com.skillsdoor.skillverify.service.dto.ExamDTO;
+import com.skillsdoor.skillverify.service.dto.ExerciseDTO;
 import com.skillsdoor.skillverify.service.mapper.ExamMapper;
 import java.util.Optional;
 import org.slf4j.Logger;
@@ -26,9 +29,12 @@ public class ExamServiceImpl implements ExamService {
 
     private final ExamMapper examMapper;
 
-    public ExamServiceImpl(ExamRepository examRepository, ExamMapper examMapper) {
+    private final ExerciseRepository exerciseRepository;
+
+    public ExamServiceImpl(ExamRepository examRepository, ExamMapper examMapper, ExerciseRepository exerciseRepository) {
         this.examRepository = examRepository;
         this.examMapper = examMapper;
+        this.exerciseRepository = exerciseRepository;
     }
 
     @Override
@@ -43,8 +49,45 @@ public class ExamServiceImpl implements ExamService {
     public ExamDTO update(ExamDTO examDTO) {
         LOG.debug("Request to update Exam : {}", examDTO);
         Exam exam = examMapper.toEntity(examDTO);
+
+        // Update exercise relationships
+        if (examDTO.getExercises() != null) {
+            for (ExerciseDTO exDto : examDTO.getExercises()) {
+                Exercise exercise = exerciseRepository.findById(exDto.getId()).orElse(null);
+                if (exercise != null) {
+                    exercise.setExam(exam);
+                    exerciseRepository.save(exercise);
+                }
+            }
+        }
+
         exam = examRepository.save(exam);
-        return examMapper.toDto(exam);
+
+        // Reload with exercises
+        return examRepository
+            .findByIdWithExercises(exam.getId())
+            .map(savedExam -> {
+                ExamDTO dto = examMapper.toDto(savedExam);
+                if (!savedExam.getExercises().isEmpty()) {
+                    dto.setExercises(
+                        savedExam
+                            .getExercises()
+                            .stream()
+                            .map(exercise -> {
+                                ExerciseDTO exDto = new ExerciseDTO();
+                                exDto.setId(exercise.getId());
+                                exDto.setTitle(exercise.getTitle());
+                                exDto.setType(exercise.getType());
+                                exDto.setPoints(exercise.getPoints());
+                                exDto.setOrderIndex(exercise.getOrderIndex());
+                                return exDto;
+                            })
+                            .toList()
+                    );
+                }
+                return dto;
+            })
+            .orElse(examMapper.toDto(exam));
     }
 
     @Override
@@ -73,7 +116,29 @@ public class ExamServiceImpl implements ExamService {
     @Transactional(readOnly = true)
     public Optional<ExamDTO> findOne(Long id) {
         LOG.debug("Request to get Exam : {}", id);
-        return examRepository.findById(id).map(examMapper::toDto);
+        return examRepository
+            .findByIdWithExercises(id)
+            .map(exam -> {
+                ExamDTO dto = examMapper.toDto(exam);
+                if (!exam.getExercises().isEmpty()) {
+                    dto.setExercises(
+                        exam
+                            .getExercises()
+                            .stream()
+                            .map(exercise -> {
+                                ExerciseDTO exDto = new ExerciseDTO();
+                                exDto.setId(exercise.getId());
+                                exDto.setTitle(exercise.getTitle());
+                                exDto.setType(exercise.getType());
+                                exDto.setPoints(exercise.getPoints());
+                                exDto.setOrderIndex(exercise.getOrderIndex());
+                                return exDto;
+                            })
+                            .toList()
+                    );
+                }
+                return dto;
+            });
     }
 
     @Override

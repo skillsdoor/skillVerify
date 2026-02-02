@@ -1,0 +1,50 @@
+{
+  "annotations": {
+    "changelogDate": "20260202165236"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "position",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "correctAnswer",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "caseSensitive",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "orderIndex",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "BlankSpace",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "blankAnswer",
+      "otherEntityRelationshipName": "blankSpace",
+      "relationshipName": "blankAnswers",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "exercise",
+      "otherEntityRelationshipName": "blankSpaces",
+      "relationshipName": "exercise",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

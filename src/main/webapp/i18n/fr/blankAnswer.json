@@ -1,0 +1,27 @@
+{
+  "skillVerifyApp": {
+    "blankAnswer": {
+      "home": {
+        "title": "BlankAnswers",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Blank Answer",
+        "createOrEditLabel": "Créer ou éditer un Blank Answer",
+        "notFound": "Aucun Blank Answer trouvé"
+      },
+      "created": "Un nouveau Blank Answer a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Blank Answer avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Blank Answer avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Blank Answer {{ id }} ?"
+      },
+      "detail": {
+        "title": "Blank Answer"
+      },
+      "id": "ID",
+      "answerText": "Answer Text",
+      "isCorrect": "Is Correct",
+      "candidateAnswer": "Candidate Answer",
+      "blankSpace": "Blank Space"
+    }
+  }
+}

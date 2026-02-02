@@ -53,6 +53,13 @@ public class Media implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(
+        value = { "media", "qcmOptions", "blankSpaces", "listItems", "candidateAnswers", "exam", "questions" },
+        allowSetters = true
+    )
+    private Exercise exercise;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(
         value = { "media", "answerOptions", "fillInTheBlanks", "bindLists", "candidateAnswers", "exercise" },
         allowSetters = true
     )
@@ -162,6 +169,19 @@ public class Media implements Serializable {
 
     public void setUploadedAt(Instant uploadedAt) {
         this.uploadedAt = uploadedAt;
+    }
+
+    public Exercise getExercise() {
+        return this.exercise;
+    }
+
+    public void setExercise(Exercise exercise) {
+        this.exercise = exercise;
+    }
+
+    public Media exercise(Exercise exercise) {
+        this.setExercise(exercise);
+        return this;
     }
 
     public Question getQuestion() {

@@ -39,6 +39,14 @@ public class Exercise implements Serializable {
     @Column(name = "instruction")
     private String instruction;
 
+    @Lob
+    @Column(name = "content")
+    private String content;
+
+    @Lob
+    @Column(name = "explanation")
+    private String explanation;
+
     @NotNull
     @Column(name = "points", nullable = false)
     private Integer points;
@@ -49,16 +57,44 @@ public class Exercise implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "exercise")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "exercise", "question" }, allowSetters = true)
+    private Set<Media> media = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "exercise", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "qcmAnswers", "exercise" }, allowSetters = true)
+    private Set<QcmOption> qcmOptions = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "exercise", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "blankAnswers", "exercise" }, allowSetters = true)
+    private Set<BlankSpace> blankSpaces = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "exercise", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "exercise" }, allowSetters = true)
+    private Set<ListItem> listItems = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "exercise")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(
-        value = { "media", "answerOptions", "fillInTheBlanks", "bindLists", "candidateAnswers", "exercise" },
+        value = { "qcmAnswers", "blankAnswers", "bindAnswers", "examSession", "exercise", "question", "bindListAnswers" },
         allowSetters = true
     )
-    private Set<Question> questions = new HashSet<>();
+    private Set<CandidateAnswer> candidateAnswers = new HashSet<>();
 
     @ManyToOne(optional = false)
     @NotNull
     @JsonIgnoreProperties(value = { "exercises", "examSessions", "recruiter", "trainingProvider" }, allowSetters = true)
     private Exam exam;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "exercise")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(
+        value = { "media", "answerOptions", "fillInTheBlanks", "bindLists", "candidateAnswers", "exercise" },
+        allowSetters = true
+    )
+    private Set<Question> questions = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -114,6 +150,32 @@ public class Exercise implements Serializable {
         this.instruction = instruction;
     }
 
+    public String getContent() {
+        return this.content;
+    }
+
+    public Exercise content(String content) {
+        this.setContent(content);
+        return this;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getExplanation() {
+        return this.explanation;
+    }
+
+    public Exercise explanation(String explanation) {
+        this.setExplanation(explanation);
+        return this;
+    }
+
+    public void setExplanation(String explanation) {
+        this.explanation = explanation;
+    }
+
     public Integer getPoints() {
         return this.points;
     }
@@ -138,6 +200,174 @@ public class Exercise implements Serializable {
 
     public void setOrderIndex(Integer orderIndex) {
         this.orderIndex = orderIndex;
+    }
+
+    public Set<Media> getMedia() {
+        return this.media;
+    }
+
+    public void setMedia(Set<Media> media) {
+        if (this.media != null) {
+            this.media.forEach(i -> i.setExercise(null));
+        }
+        if (media != null) {
+            media.forEach(i -> i.setExercise(this));
+        }
+        this.media = media;
+    }
+
+    public Exercise media(Set<Media> media) {
+        this.setMedia(media);
+        return this;
+    }
+
+    public Exercise addMedia(Media media) {
+        this.media.add(media);
+        media.setExercise(this);
+        return this;
+    }
+
+    public Exercise removeMedia(Media media) {
+        this.media.remove(media);
+        media.setExercise(null);
+        return this;
+    }
+
+    public Set<QcmOption> getQcmOptions() {
+        return this.qcmOptions;
+    }
+
+    public void setQcmOptions(Set<QcmOption> qcmOptions) {
+        if (this.qcmOptions != null) {
+            this.qcmOptions.forEach(i -> i.setExercise(null));
+        }
+        if (qcmOptions != null) {
+            qcmOptions.forEach(i -> i.setExercise(this));
+        }
+        this.qcmOptions = qcmOptions;
+    }
+
+    public Exercise qcmOptions(Set<QcmOption> qcmOptions) {
+        this.setQcmOptions(qcmOptions);
+        return this;
+    }
+
+    public Exercise addQcmOptions(QcmOption qcmOption) {
+        this.qcmOptions.add(qcmOption);
+        qcmOption.setExercise(this);
+        return this;
+    }
+
+    public Exercise removeQcmOptions(QcmOption qcmOption) {
+        this.qcmOptions.remove(qcmOption);
+        qcmOption.setExercise(null);
+        return this;
+    }
+
+    public Set<BlankSpace> getBlankSpaces() {
+        return this.blankSpaces;
+    }
+
+    public void setBlankSpaces(Set<BlankSpace> blankSpaces) {
+        if (this.blankSpaces != null) {
+            this.blankSpaces.forEach(i -> i.setExercise(null));
+        }
+        if (blankSpaces != null) {
+            blankSpaces.forEach(i -> i.setExercise(this));
+        }
+        this.blankSpaces = blankSpaces;
+    }
+
+    public Exercise blankSpaces(Set<BlankSpace> blankSpaces) {
+        this.setBlankSpaces(blankSpaces);
+        return this;
+    }
+
+    public Exercise addBlankSpaces(BlankSpace blankSpace) {
+        this.blankSpaces.add(blankSpace);
+        blankSpace.setExercise(this);
+        return this;
+    }
+
+    public Exercise removeBlankSpaces(BlankSpace blankSpace) {
+        this.blankSpaces.remove(blankSpace);
+        blankSpace.setExercise(null);
+        return this;
+    }
+
+    public Set<ListItem> getListItems() {
+        return this.listItems;
+    }
+
+    public void setListItems(Set<ListItem> listItems) {
+        if (this.listItems != null) {
+            this.listItems.forEach(i -> i.setExercise(null));
+        }
+        if (listItems != null) {
+            listItems.forEach(i -> i.setExercise(this));
+        }
+        this.listItems = listItems;
+    }
+
+    public Exercise listItems(Set<ListItem> listItems) {
+        this.setListItems(listItems);
+        return this;
+    }
+
+    public Exercise addListItems(ListItem listItem) {
+        this.listItems.add(listItem);
+        listItem.setExercise(this);
+        return this;
+    }
+
+    public Exercise removeListItems(ListItem listItem) {
+        this.listItems.remove(listItem);
+        listItem.setExercise(null);
+        return this;
+    }
+
+    public Set<CandidateAnswer> getCandidateAnswers() {
+        return this.candidateAnswers;
+    }
+
+    public void setCandidateAnswers(Set<CandidateAnswer> candidateAnswers) {
+        if (this.candidateAnswers != null) {
+            this.candidateAnswers.forEach(i -> i.setExercise(null));
+        }
+        if (candidateAnswers != null) {
+            candidateAnswers.forEach(i -> i.setExercise(this));
+        }
+        this.candidateAnswers = candidateAnswers;
+    }
+
+    public Exercise candidateAnswers(Set<CandidateAnswer> candidateAnswers) {
+        this.setCandidateAnswers(candidateAnswers);
+        return this;
+    }
+
+    public Exercise addCandidateAnswers(CandidateAnswer candidateAnswer) {
+        this.candidateAnswers.add(candidateAnswer);
+        candidateAnswer.setExercise(this);
+        return this;
+    }
+
+    public Exercise removeCandidateAnswers(CandidateAnswer candidateAnswer) {
+        this.candidateAnswers.remove(candidateAnswer);
+        candidateAnswer.setExercise(null);
+        return this;
+    }
+
+    public Exam getExam() {
+        return this.exam;
+    }
+
+    public void setExam(Exam exam) {
+        this.exam = exam;
+    }
+
+    public Exercise exam(Exam exam) {
+        this.setExam(exam);
+        return this;
     }
 
     public Set<Question> getQuestions() {
@@ -171,19 +401,6 @@ public class Exercise implements Serializable {
         return this;
     }
 
-    public Exam getExam() {
-        return this.exam;
-    }
-
-    public void setExam(Exam exam) {
-        this.exam = exam;
-    }
-
-    public Exercise exam(Exam exam) {
-        this.setExam(exam);
-        return this;
-    }
-
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -211,6 +428,8 @@ public class Exercise implements Serializable {
             ", type='" + getType() + "'" +
             ", title='" + getTitle() + "'" +
             ", instruction='" + getInstruction() + "'" +
+            ", content='" + getContent() + "'" +
+            ", explanation='" + getExplanation() + "'" +
             ", points=" + getPoints() +
             ", orderIndex=" + getOrderIndex() +
             "}";

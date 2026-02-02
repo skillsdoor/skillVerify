@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.skillsdoor.skillverify.IntegrationTest;
 import com.skillsdoor.skillverify.domain.CandidateAnswer;
 import com.skillsdoor.skillverify.domain.ExamSession;
-import com.skillsdoor.skillverify.domain.Question;
+import com.skillsdoor.skillverify.domain.Exercise;
 import com.skillsdoor.skillverify.repository.CandidateAnswerRepository;
 import com.skillsdoor.skillverify.service.dto.CandidateAnswerDTO;
 import com.skillsdoor.skillverify.service.mapper.CandidateAnswerMapper;
@@ -40,9 +40,6 @@ class CandidateAnswerResourceIT {
 
     private static final String DEFAULT_ANSWER_TEXT = "AAAAAAAAAA";
     private static final String UPDATED_ANSWER_TEXT = "BBBBBBBBBB";
-
-    private static final Long DEFAULT_SELECTED_OPTION_ID = 1L;
-    private static final Long UPDATED_SELECTED_OPTION_ID = 2L;
 
     private static final Boolean DEFAULT_IS_CORRECT = false;
     private static final Boolean UPDATED_IS_CORRECT = true;
@@ -87,7 +84,6 @@ class CandidateAnswerResourceIT {
     public static CandidateAnswer createEntity(EntityManager em) {
         CandidateAnswer candidateAnswer = new CandidateAnswer()
             .answerText(DEFAULT_ANSWER_TEXT)
-            .selectedOptionId(DEFAULT_SELECTED_OPTION_ID)
             .isCorrect(DEFAULT_IS_CORRECT)
             .pointsAwarded(DEFAULT_POINTS_AWARDED)
             .answeredAt(DEFAULT_ANSWERED_AT);
@@ -102,15 +98,15 @@ class CandidateAnswerResourceIT {
         }
         candidateAnswer.setExamSession(examSession);
         // Add required entity
-        Question question;
-        if (TestUtil.findAll(em, Question.class).isEmpty()) {
-            question = QuestionResourceIT.createEntity(em);
-            em.persist(question);
+        Exercise exercise;
+        if (TestUtil.findAll(em, Exercise.class).isEmpty()) {
+            exercise = ExerciseResourceIT.createEntity(em);
+            em.persist(exercise);
             em.flush();
         } else {
-            question = TestUtil.findAll(em, Question.class).get(0);
+            exercise = TestUtil.findAll(em, Exercise.class).get(0);
         }
-        candidateAnswer.setQuestion(question);
+        candidateAnswer.setExercise(exercise);
         return candidateAnswer;
     }
 
@@ -123,7 +119,6 @@ class CandidateAnswerResourceIT {
     public static CandidateAnswer createUpdatedEntity(EntityManager em) {
         CandidateAnswer updatedCandidateAnswer = new CandidateAnswer()
             .answerText(UPDATED_ANSWER_TEXT)
-            .selectedOptionId(UPDATED_SELECTED_OPTION_ID)
             .isCorrect(UPDATED_IS_CORRECT)
             .pointsAwarded(UPDATED_POINTS_AWARDED)
             .answeredAt(UPDATED_ANSWERED_AT);
@@ -138,15 +133,15 @@ class CandidateAnswerResourceIT {
         }
         updatedCandidateAnswer.setExamSession(examSession);
         // Add required entity
-        Question question;
-        if (TestUtil.findAll(em, Question.class).isEmpty()) {
-            question = QuestionResourceIT.createUpdatedEntity(em);
-            em.persist(question);
+        Exercise exercise;
+        if (TestUtil.findAll(em, Exercise.class).isEmpty()) {
+            exercise = ExerciseResourceIT.createUpdatedEntity(em);
+            em.persist(exercise);
             em.flush();
         } else {
-            question = TestUtil.findAll(em, Question.class).get(0);
+            exercise = TestUtil.findAll(em, Exercise.class).get(0);
         }
-        updatedCandidateAnswer.setQuestion(question);
+        updatedCandidateAnswer.setExercise(exercise);
         return updatedCandidateAnswer;
     }
 
@@ -218,7 +213,6 @@ class CandidateAnswerResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(candidateAnswer.getId().intValue())))
             .andExpect(jsonPath("$.[*].answerText").value(hasItem(DEFAULT_ANSWER_TEXT)))
-            .andExpect(jsonPath("$.[*].selectedOptionId").value(hasItem(DEFAULT_SELECTED_OPTION_ID.intValue())))
             .andExpect(jsonPath("$.[*].isCorrect").value(hasItem(DEFAULT_IS_CORRECT)))
             .andExpect(jsonPath("$.[*].pointsAwarded").value(hasItem(DEFAULT_POINTS_AWARDED)))
             .andExpect(jsonPath("$.[*].answeredAt").value(hasItem(DEFAULT_ANSWERED_AT.toString())));
@@ -237,7 +231,6 @@ class CandidateAnswerResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(candidateAnswer.getId().intValue()))
             .andExpect(jsonPath("$.answerText").value(DEFAULT_ANSWER_TEXT))
-            .andExpect(jsonPath("$.selectedOptionId").value(DEFAULT_SELECTED_OPTION_ID.intValue()))
             .andExpect(jsonPath("$.isCorrect").value(DEFAULT_IS_CORRECT))
             .andExpect(jsonPath("$.pointsAwarded").value(DEFAULT_POINTS_AWARDED))
             .andExpect(jsonPath("$.answeredAt").value(DEFAULT_ANSWERED_AT.toString()));
@@ -264,7 +257,6 @@ class CandidateAnswerResourceIT {
         em.detach(updatedCandidateAnswer);
         updatedCandidateAnswer
             .answerText(UPDATED_ANSWER_TEXT)
-            .selectedOptionId(UPDATED_SELECTED_OPTION_ID)
             .isCorrect(UPDATED_IS_CORRECT)
             .pointsAwarded(UPDATED_POINTS_AWARDED)
             .answeredAt(UPDATED_ANSWERED_AT);
@@ -357,7 +349,7 @@ class CandidateAnswerResourceIT {
         CandidateAnswer partialUpdatedCandidateAnswer = new CandidateAnswer();
         partialUpdatedCandidateAnswer.setId(candidateAnswer.getId());
 
-        partialUpdatedCandidateAnswer.answerText(UPDATED_ANSWER_TEXT).isCorrect(UPDATED_IS_CORRECT).answeredAt(UPDATED_ANSWERED_AT);
+        partialUpdatedCandidateAnswer.pointsAwarded(UPDATED_POINTS_AWARDED).answeredAt(UPDATED_ANSWERED_AT);
 
         restCandidateAnswerMockMvc
             .perform(
@@ -390,7 +382,6 @@ class CandidateAnswerResourceIT {
 
         partialUpdatedCandidateAnswer
             .answerText(UPDATED_ANSWER_TEXT)
-            .selectedOptionId(UPDATED_SELECTED_OPTION_ID)
             .isCorrect(UPDATED_IS_CORRECT)
             .pointsAwarded(UPDATED_POINTS_AWARDED)
             .answeredAt(UPDATED_ANSWERED_AT);

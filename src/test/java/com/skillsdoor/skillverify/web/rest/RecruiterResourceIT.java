@@ -453,7 +453,12 @@ class RecruiterResourceIT {
         Recruiter partialUpdatedRecruiter = new Recruiter();
         partialUpdatedRecruiter.setId(recruiter.getId());
 
-        partialUpdatedRecruiter.firstName(UPDATED_FIRST_NAME).phone(UPDATED_PHONE).bio(UPDATED_BIO).company(UPDATED_COMPANY);
+        partialUpdatedRecruiter
+            .lastName(UPDATED_LAST_NAME)
+            .avatarUrl(UPDATED_AVATAR_URL)
+            .company(UPDATED_COMPANY)
+            .position(UPDATED_POSITION)
+            .createdAt(UPDATED_CREATED_AT);
 
         restRecruiterMockMvc
             .perform(

@@ -81,19 +81,13 @@ entity Exercise {
   type ExerciseType required
   title String required
   instruction TextBlob
-  points Integer required
-  orderIndex Integer required
-}
-
-// Question
-entity Question {
-  content TextBlob required
+  content TextBlob // question content
   explanation TextBlob
   points Integer required
   orderIndex Integer required
 }
 
-// Media attached to questions
+// Media attached to exercises
 entity Media {
   type MediaType required
   s3Key String required
@@ -104,25 +98,26 @@ entity Media {
   uploadedAt Instant
 }
 
-// QCM Answer Options
-entity AnswerOption {
+// QCM Options (for QCM exercises)
+entity QcmOption {
   content String required
   isCorrect Boolean required
   orderIndex Integer required
 }
 
-// Fill in the Blank
-entity FillInTheBlank {
-  textWithBlanks TextBlob required // text with {{blank}} markers
-  blankIndex Integer required
+// Fill in the Blank (for FILL_IN_THE_BLANK exercises)
+entity BlankSpace {
+  position Integer required // position in text
   correctAnswer String required
   caseSensitive Boolean required
+  orderIndex Integer required
 }
 
-// Bind Lists (matching pairs)
-entity BindList {
-  leftItem String required
-  rightItem String required
+// Bind Lists Items (for BIND_LISTS exercises)
+entity ListItem {
+  content String required
+  matchingContent String required // the item it should match with
+  isLeftSide Boolean required // true for left column, false for right
   orderIndex Integer required
 }
 
@@ -138,15 +133,25 @@ entity ExamSession {
 
 // Candidate Answers
 entity CandidateAnswer {
-  answerText TextBlob
-  selectedOptionId Long
+  answerText TextBlob // for SHORT_ANSWER, TRUE_FALSE
   isCorrect Boolean
   pointsAwarded Integer
   answeredAt Instant
 }
 
-// Bind List Answer
-entity BindListAnswer {
+// QCM Answer (selected options)
+entity QcmAnswer {
+  isCorrect Boolean
+}
+
+// Fill Blank Answer
+entity BlankAnswer {
+  answerText String required
+  isCorrect Boolean
+}
+
+// Bind List Answer (matching pairs)
+entity BindAnswer {
   leftItemId Long required
   rightItemId Long required
   isCorrect Boolean
@@ -164,16 +169,19 @@ relationship OneToMany {
   Recruiter{exams} to Exam{recruiter}
   TrainingProvider{exams} to Exam{trainingProvider}
   Exam{exercises} to Exercise{exam required}
-  Exercise{questions} to Question{exercise required}
-  Question{media} to Media{question}
-  Question{answerOptions} to AnswerOption{question required}
-  Question{fillInTheBlanks} to FillInTheBlank{question required}
-  Question{bindLists} to BindList{question required}
+  Exercise{media} to Media{exercise}
+  Exercise{qcmOptions} to QcmOption{exercise required}
+  Exercise{blankSpaces} to BlankSpace{exercise required}
+  Exercise{listItems} to ListItem{exercise required}
   Candidate{examSessions} to ExamSession{candidate required}
   Exam{examSessions} to ExamSession{exam required}
   ExamSession{candidateAnswers} to CandidateAnswer{examSession required}
-  Question{candidateAnswers} to CandidateAnswer{question required}
-  CandidateAnswer{bindListAnswers} to BindListAnswer{candidateAnswer required}
+  Exercise{candidateAnswers} to CandidateAnswer{exercise required}
+  CandidateAnswer{qcmAnswers} to QcmAnswer{candidateAnswer required}
+  QcmOption{qcmAnswers} to QcmAnswer{qcmOption required}
+  CandidateAnswer{blankAnswers} to BlankAnswer{candidateAnswer required}
+  BlankSpace{blankAnswers} to BlankAnswer{blankSpace required}
+  CandidateAnswer{bindAnswers} to BindAnswer{candidateAnswer required}
 }
 
 dto * with mapstruct

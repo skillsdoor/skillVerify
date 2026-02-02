@@ -50,6 +50,18 @@ export const ExerciseDetail = () => {
           </dt>
           <dd>{exerciseEntity.instruction}</dd>
           <dt>
+            <span id="content">
+              <Translate contentKey="skillVerifyApp.exercise.content">Content</Translate>
+            </span>
+          </dt>
+          <dd>{exerciseEntity.content}</dd>
+          <dt>
+            <span id="explanation">
+              <Translate contentKey="skillVerifyApp.exercise.explanation">Explanation</Translate>
+            </span>
+          </dt>
+          <dd>{exerciseEntity.explanation}</dd>
+          <dt>
             <span id="points">
               <Translate contentKey="skillVerifyApp.exercise.points">Points</Translate>
             </span>

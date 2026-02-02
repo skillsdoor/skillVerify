@@ -18,7 +18,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tech.jhipster.web.util.HeaderUtil;
@@ -56,7 +55,6 @@ public class ExamResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("")
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_RECRUITER', 'ROLE_TRAINING_PROVIDER')")
     public ResponseEntity<ExamDTO> createExam(@Valid @RequestBody ExamDTO examDTO) throws URISyntaxException {
         LOG.debug("REST request to save Exam : {}", examDTO);
         if (examDTO.getId() != null) {
@@ -79,7 +77,6 @@ public class ExamResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/{id}")
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_RECRUITER', 'ROLE_TRAINING_PROVIDER')")
     public ResponseEntity<ExamDTO> updateExam(
         @PathVariable(value = "id", required = false) final Long id,
         @Valid @RequestBody ExamDTO examDTO
@@ -114,7 +111,6 @@ public class ExamResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PatchMapping(value = "/{id}", consumes = { "application/json", "application/merge-patch+json" })
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_RECRUITER', 'ROLE_TRAINING_PROVIDER')")
     public ResponseEntity<ExamDTO> partialUpdateExam(
         @PathVariable(value = "id", required = false) final Long id,
         @NotNull @RequestBody ExamDTO examDTO
@@ -173,7 +169,6 @@ public class ExamResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_RECRUITER', 'ROLE_TRAINING_PROVIDER')")
     public ResponseEntity<Void> deleteExam(@PathVariable("id") Long id) {
         LOG.debug("REST request to delete Exam : {}", id);
         examService.delete(id);

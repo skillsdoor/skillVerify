@@ -1,0 +1,315 @@
+/* Modern Exercise Styles - Bootstrap Compatible */
+.exercise-modern-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.exercise-modern-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.exercise-modern-title {
+  color: #0d141b;
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.exercise-modern-subtitle {
+  color: #4c739a;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.btn-modern-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.btn-modern-secondary {
+  background-color: #e7edf3;
+  color: #0d141b;
+  border: none;
+}
+
+.btn-modern-secondary:hover {
+  background-color: #d1dce6;
+  color: #0d141b;
+}
+
+.btn-modern-primary {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  box-shadow: 0 10px 15px -3px rgba(25, 118, 210, 0.2);
+}
+
+.btn-modern-primary:hover {
+  background-color: #1565c0;
+  color: white;
+}
+
+.search-modern-wrapper {
+  max-width: 28rem;
+  margin-bottom: 2rem;
+}
+
+.search-modern-group {
+  display: flex;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.search-modern-icon {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background-color: #e7edf3;
+  border-right: 1px solid #cbd5e1;
+}
+
+.search-modern-input {
+  border: none;
+  padding: 0.5rem 1rem;
+  flex: 1;
+}
+
+.search-modern-input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.filter-modern-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid #cfdbe7;
+  margin-bottom: 2rem;
+}
+
+.filter-modern-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4c739a;
+  padding-right: 0.75rem;
+  border-right: 1px solid #cbd5e1;
+  margin-right: 0.5rem;
+}
+
+.filter-modern-chip {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-modern-chip-inactive {
+  background-color: #f1f5f9;
+  color: #0d141b;
+}
+
+.filter-modern-chip-inactive:hover {
+  background-color: #e2e8f0;
+}
+
+.filter-modern-chip-active {
+  background-color: #1976d2;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(25, 118, 210, 0.2);
+}
+
+.table-modern-container {
+  background-color: white;
+  border: 1px solid #cfdbe7;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.table-modern {
+  margin-bottom: 0;
+}
+
+.table-modern thead {
+  background-color: #f8fafc;
+  border-bottom: 2px solid #cfdbe7;
+}
+
+.table-modern thead th {
+  padding: 1rem 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #4c739a;
+  letter-spacing: 0.05em;
+  border: none;
+}
+
+.table-modern tbody tr {
+  border-bottom: 1px solid #cfdbe7;
+  transition: background-color 0.2s;
+}
+
+.table-modern tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.table-modern tbody td {
+  padding: 1rem 1.5rem;
+  vertical-align: middle;
+  border: none;
+}
+
+.badge-modern {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 50rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-modern-qcm {
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.badge-modern-fill {
+  background-color: #faf5ff;
+  color: #9333ea;
+}
+
+.badge-modern-code {
+  background-color: #f0fdf4;
+  color: #16a34a;
+}
+
+.badge-modern-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.action-modern-group {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: flex-end;
+}
+
+.action-modern-btn {
+  padding: 0.375rem;
+  color: #4c739a;
+  background: transparent;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+}
+
+.action-modern-btn:hover {
+  color: #1976d2;
+  background-color: #f1f5f9;
+}
+
+.action-modern-btn-delete:hover {
+  color: #dc2626;
+}
+
+.pagination-modern-footer {
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8fafc;
+  border-top: 1px solid #cfdbe7;
+}
+
+.pagination-modern-info {
+  font-size: 0.75rem;
+  color: #4c739a;
+}
+
+.form-modern-card {
+  background-color: white;
+  border: 1px solid #cfdbe7;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.form-modern-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0d141b;
+  margin-bottom: 0.5rem;
+}
+
+.form-modern-input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.form-modern-input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 0.2rem rgba(25, 118, 210, 0.25);
+}
+
+.options-modern-section {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #f8fafc;
+  border-radius: 0.5rem;
+  border: 1px solid #cbd5e1;
+}
+
+.option-modern-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #cbd5e1;
+  margin-bottom: 0.75rem;
+}
+
+.form-modern-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #cbd5e1;
+}

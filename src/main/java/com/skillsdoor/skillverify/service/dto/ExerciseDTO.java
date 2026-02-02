@@ -4,6 +4,7 @@ import com.skillsdoor.skillverify.domain.enumeration.ExerciseType;
 import jakarta.persistence.Lob;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -23,6 +24,12 @@ public class ExerciseDTO implements Serializable {
     @Lob
     private String instruction;
 
+    @Lob
+    private String content;
+
+    @Lob
+    private String explanation;
+
     @NotNull
     private Integer points;
 
@@ -31,6 +38,12 @@ public class ExerciseDTO implements Serializable {
 
     @NotNull
     private ExamDTO exam;
+
+    private List<QcmOptionDTO> qcmOptions;
+
+    private List<BlankSpaceDTO> blankSpaces;
+
+    private List<ListItemDTO> listItems;
 
     public Long getId() {
         return id;
@@ -64,6 +77,22 @@ public class ExerciseDTO implements Serializable {
         this.instruction = instruction;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getExplanation() {
+        return explanation;
+    }
+
+    public void setExplanation(String explanation) {
+        this.explanation = explanation;
+    }
+
     public Integer getPoints() {
         return points;
     }
@@ -86,6 +115,30 @@ public class ExerciseDTO implements Serializable {
 
     public void setExam(ExamDTO exam) {
         this.exam = exam;
+    }
+
+    public List<QcmOptionDTO> getQcmOptions() {
+        return qcmOptions;
+    }
+
+    public void setQcmOptions(List<QcmOptionDTO> qcmOptions) {
+        this.qcmOptions = qcmOptions;
+    }
+
+    public List<BlankSpaceDTO> getBlankSpaces() {
+        return blankSpaces;
+    }
+
+    public void setBlankSpaces(List<BlankSpaceDTO> blankSpaces) {
+        this.blankSpaces = blankSpaces;
+    }
+
+    public List<ListItemDTO> getListItems() {
+        return listItems;
+    }
+
+    public void setListItems(List<ListItemDTO> listItems) {
+        this.listItems = listItems;
     }
 
     @Override
@@ -117,6 +170,8 @@ public class ExerciseDTO implements Serializable {
             ", type='" + getType() + "'" +
             ", title='" + getTitle() + "'" +
             ", instruction='" + getInstruction() + "'" +
+            ", content='" + getContent() + "'" +
+            ", explanation='" + getExplanation() + "'" +
             ", points=" + getPoints() +
             ", orderIndex=" + getOrderIndex() +
             ", exam=" + getExam() +

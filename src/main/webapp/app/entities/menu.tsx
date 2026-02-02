@@ -1,8 +1,8 @@
 import React from 'react';
-import { Translate } from 'react-jhipster'; // eslint-disable-line
+import { Translate } from 'react-jhipster';
 import { useAppSelector } from 'app/config/store';
 
-import MenuItem from 'app/shared/layout/menus/menu-item'; // eslint-disable-line
+import MenuItem from 'app/shared/layout/menus/menu-item';
 
 const EntitiesMenu = () => {
   const account = useAppSelector(state => state.authentication.account);
@@ -96,6 +96,48 @@ const EntitiesMenu = () => {
           </MenuItem>
         </>
       )}
+      <MenuItem icon="asterisk" to="/recruiter">
+        <Translate contentKey="global.menu.entities.recruiter" />
+      </MenuItem>
+      <MenuItem icon="asterisk" to="/candidate">
+        <Translate contentKey="global.menu.entities.candidate" />
+      </MenuItem>
+      <MenuItem icon="asterisk" to="/training-provider">
+        <Translate contentKey="global.menu.entities.trainingProvider" />
+      </MenuItem>
+      <MenuItem icon="asterisk" to="/exam">
+        <Translate contentKey="global.menu.entities.exam" />
+      </MenuItem>
+      <MenuItem icon="asterisk" to="/exercise">
+        <Translate contentKey="global.menu.entities.exercise" />
+      </MenuItem>
+      <MenuItem icon="asterisk" to="/media">
+        <Translate contentKey="global.menu.entities.media" />
+      </MenuItem>
+      <MenuItem icon="asterisk" to="/exam-session">
+        <Translate contentKey="global.menu.entities.examSession" />
+      </MenuItem>
+      <MenuItem icon="asterisk" to="/candidate-answer">
+        <Translate contentKey="global.menu.entities.candidateAnswer" />
+      </MenuItem>
+      <MenuItem icon="asterisk" to="/qcm-option">
+        <Translate contentKey="global.menu.entities.qcmOption" />
+      </MenuItem>
+      <MenuItem icon="asterisk" to="/blank-space">
+        <Translate contentKey="global.menu.entities.blankSpace" />
+      </MenuItem>
+      <MenuItem icon="asterisk" to="/list-item">
+        <Translate contentKey="global.menu.entities.listItem" />
+      </MenuItem>
+      <MenuItem icon="asterisk" to="/qcm-answer">
+        <Translate contentKey="global.menu.entities.qcmAnswer" />
+      </MenuItem>
+      <MenuItem icon="asterisk" to="/blank-answer">
+        <Translate contentKey="global.menu.entities.blankAnswer" />
+      </MenuItem>
+      <MenuItem icon="asterisk" to="/bind-answer">
+        <Translate contentKey="global.menu.entities.bindAnswer" />
+      </MenuItem>
       {/* jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here */}
     </>
   );

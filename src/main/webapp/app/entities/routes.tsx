@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router'; // eslint-disable-line
+import { Route } from 'react-router';
 
 import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
 
@@ -16,6 +16,12 @@ import BindList from './bind-list';
 import ExamSession from './exam-session';
 import CandidateAnswer from './candidate-answer';
 import BindListAnswer from './bind-list-answer';
+import QcmOption from './qcm-option';
+import BlankSpace from './blank-space';
+import ListItem from './list-item';
+import QcmAnswer from './qcm-answer';
+import BlankAnswer from './blank-answer';
+import BindAnswer from './bind-answer';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {
@@ -36,6 +42,12 @@ export default () => {
         <Route path="exam-session/*" element={<ExamSession />} />
         <Route path="candidate-answer/*" element={<CandidateAnswer />} />
         <Route path="bind-list-answer/*" element={<BindListAnswer />} />
+        <Route path="qcm-option/*" element={<QcmOption />} />
+        <Route path="blank-space/*" element={<BlankSpace />} />
+        <Route path="list-item/*" element={<ListItem />} />
+        <Route path="qcm-answer/*" element={<QcmAnswer />} />
+        <Route path="blank-answer/*" element={<BlankAnswer />} />
+        <Route path="bind-answer/*" element={<BindAnswer />} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </ErrorBoundaryRoutes>
     </div>

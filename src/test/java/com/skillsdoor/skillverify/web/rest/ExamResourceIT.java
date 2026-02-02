@@ -424,12 +424,7 @@ class ExamResourceIT {
         Exam partialUpdatedExam = new Exam();
         partialUpdatedExam.setId(exam.getId());
 
-        partialUpdatedExam
-            .title(UPDATED_TITLE)
-            .duration(UPDATED_DURATION)
-            .createdAt(UPDATED_CREATED_AT)
-            .updatedAt(UPDATED_UPDATED_AT)
-            .publishedAt(UPDATED_PUBLISHED_AT);
+        partialUpdatedExam.title(UPDATED_TITLE).testType(UPDATED_TEST_TYPE).createdAt(UPDATED_CREATED_AT);
 
         restExamMockMvc
             .perform(

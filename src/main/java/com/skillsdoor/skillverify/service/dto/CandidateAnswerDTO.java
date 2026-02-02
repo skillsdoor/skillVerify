@@ -17,8 +17,6 @@ public class CandidateAnswerDTO implements Serializable {
     @Lob
     private String answerText;
 
-    private Long selectedOptionId;
-
     private Boolean isCorrect;
 
     private Integer pointsAwarded;
@@ -29,6 +27,8 @@ public class CandidateAnswerDTO implements Serializable {
     private ExamSessionDTO examSession;
 
     @NotNull
+    private ExerciseDTO exercise;
+
     private QuestionDTO question;
 
     public Long getId() {
@@ -45,14 +45,6 @@ public class CandidateAnswerDTO implements Serializable {
 
     public void setAnswerText(String answerText) {
         this.answerText = answerText;
-    }
-
-    public Long getSelectedOptionId() {
-        return selectedOptionId;
-    }
-
-    public void setSelectedOptionId(Long selectedOptionId) {
-        this.selectedOptionId = selectedOptionId;
     }
 
     public Boolean getIsCorrect() {
@@ -85,6 +77,14 @@ public class CandidateAnswerDTO implements Serializable {
 
     public void setExamSession(ExamSessionDTO examSession) {
         this.examSession = examSession;
+    }
+
+    public ExerciseDTO getExercise() {
+        return exercise;
+    }
+
+    public void setExercise(ExerciseDTO exercise) {
+        this.exercise = exercise;
     }
 
     public QuestionDTO getQuestion() {
@@ -122,11 +122,11 @@ public class CandidateAnswerDTO implements Serializable {
         return "CandidateAnswerDTO{" +
             "id=" + getId() +
             ", answerText='" + getAnswerText() + "'" +
-            ", selectedOptionId=" + getSelectedOptionId() +
             ", isCorrect='" + getIsCorrect() + "'" +
             ", pointsAwarded=" + getPointsAwarded() +
             ", answeredAt='" + getAnsweredAt() + "'" +
             ", examSession=" + getExamSession() +
+            ", exercise=" + getExercise() +
             ", question=" + getQuestion() +
             "}";
     }

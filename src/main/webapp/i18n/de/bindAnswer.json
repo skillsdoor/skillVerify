@@ -1,0 +1,27 @@
+{
+  "skillVerifyApp": {
+    "bindAnswer": {
+      "home": {
+        "title": "Bind Answers",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Bind Answer erstellen",
+        "createOrEditLabel": "Bind Answer erstellen oder bearbeiten",
+        "notFound": "Keine Bind Answers gefunden"
+      },
+      "created": "Bind Answer erstellt mit ID {{ param }}",
+      "updated": "Bind Answer aktualisiert mit ID {{ param }}",
+      "deleted": "Bind Answer gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Bind Answer {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Bind Answer"
+      },
+      "id": "ID",
+      "leftItemId": "Left Item Id",
+      "rightItemId": "Right Item Id",
+      "isCorrect": "Is Correct",
+      "candidateAnswer": "Candidate Answer"
+    }
+  }
+}

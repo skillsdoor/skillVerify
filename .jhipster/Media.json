@@ -43,9 +43,9 @@
   "pagination": "pagination",
   "relationships": [
     {
-      "otherEntityName": "question",
+      "otherEntityName": "exercise",
       "otherEntityRelationshipName": "media",
-      "relationshipName": "question",
+      "relationshipName": "exercise",
       "relationshipSide": "right",
       "relationshipType": "many-to-one"
     }

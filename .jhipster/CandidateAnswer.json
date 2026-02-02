@@ -10,10 +10,6 @@
       "fieldType": "TextBlob"
     },
     {
-      "fieldName": "selectedOptionId",
-      "fieldType": "Long"
-    },
-    {
       "fieldName": "isCorrect",
       "fieldType": "Boolean"
     },
@@ -30,9 +26,23 @@
   "pagination": "pagination",
   "relationships": [
     {
-      "otherEntityName": "bindListAnswer",
+      "otherEntityName": "qcmAnswer",
       "otherEntityRelationshipName": "candidateAnswer",
-      "relationshipName": "bindListAnswers",
+      "relationshipName": "qcmAnswers",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "blankAnswer",
+      "otherEntityRelationshipName": "candidateAnswer",
+      "relationshipName": "blankAnswers",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "bindAnswer",
+      "otherEntityRelationshipName": "candidateAnswer",
+      "relationshipName": "bindAnswers",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"
     },
@@ -45,9 +55,9 @@
       "relationshipValidateRules": "required"
     },
     {
-      "otherEntityName": "question",
+      "otherEntityName": "exercise",
       "otherEntityRelationshipName": "candidateAnswers",
-      "relationshipName": "question",
+      "relationshipName": "exercise",
       "relationshipSide": "right",
       "relationshipType": "many-to-one",
       "relationshipValidateRules": "required"

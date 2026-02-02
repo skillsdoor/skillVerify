@@ -454,11 +454,15 @@ class TrainingProviderResourceIT {
         partialUpdatedTrainingProvider.setId(trainingProvider.getId());
 
         partialUpdatedTrainingProvider
+            .firstName(UPDATED_FIRST_NAME)
+            .lastName(UPDATED_LAST_NAME)
             .phone(UPDATED_PHONE)
+            .bio(UPDATED_BIO)
+            .avatarUrl(UPDATED_AVATAR_URL)
+            .organizationName(UPDATED_ORGANIZATION_NAME)
             .website(UPDATED_WEBSITE)
             .accreditation(UPDATED_ACCREDITATION)
-            .createdAt(UPDATED_CREATED_AT)
-            .updatedAt(UPDATED_UPDATED_AT);
+            .createdAt(UPDATED_CREATED_AT);
 
         restTrainingProviderMockMvc
             .perform(

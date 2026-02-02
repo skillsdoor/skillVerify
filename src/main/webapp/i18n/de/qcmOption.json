@@ -1,0 +1,28 @@
+{
+  "skillVerifyApp": {
+    "qcmOption": {
+      "home": {
+        "title": "Qcm Options",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Qcm Option erstellen",
+        "createOrEditLabel": "Qcm Option erstellen oder bearbeiten",
+        "notFound": "Keine Qcm Options gefunden"
+      },
+      "created": "Qcm Option erstellt mit ID {{ param }}",
+      "updated": "Qcm Option aktualisiert mit ID {{ param }}",
+      "deleted": "Qcm Option gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Qcm Option {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Qcm Option"
+      },
+      "id": "ID",
+      "content": "Content",
+      "isCorrect": "Is Correct",
+      "orderIndex": "Order Index",
+      "qcmAnswers": "Qcm Answers",
+      "exercise": "Exercise"
+    }
+  }
+}

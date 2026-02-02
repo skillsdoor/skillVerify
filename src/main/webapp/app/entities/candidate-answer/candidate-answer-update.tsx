@@ -8,6 +8,7 @@ import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateT
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getExamSessions } from 'app/entities/exam-session/exam-session.reducer';
+import { getEntities as getExercises } from 'app/entities/exercise/exercise.reducer';
 import { getEntities as getQuestions } from 'app/entities/question/question.reducer';
 import { createEntity, getEntity, reset, updateEntity } from './candidate-answer.reducer';
 
@@ -20,6 +21,7 @@ export const CandidateAnswerUpdate = () => {
   const isNew = id === undefined;
 
   const examSessions = useAppSelector(state => state.examSession.entities);
+  const exercises = useAppSelector(state => state.exercise.entities);
   const questions = useAppSelector(state => state.question.entities);
   const candidateAnswerEntity = useAppSelector(state => state.candidateAnswer.entity);
   const loading = useAppSelector(state => state.candidateAnswer.loading);
@@ -38,6 +40,7 @@ export const CandidateAnswerUpdate = () => {
     }
 
     dispatch(getExamSessions({}));
+    dispatch(getExercises({}));
     dispatch(getQuestions({}));
   }, []);
 
@@ -51,9 +54,6 @@ export const CandidateAnswerUpdate = () => {
     if (values.id !== undefined && typeof values.id !== 'number') {
       values.id = Number(values.id);
     }
-    if (values.selectedOptionId !== undefined && typeof values.selectedOptionId !== 'number') {
-      values.selectedOptionId = Number(values.selectedOptionId);
-    }
     if (values.pointsAwarded !== undefined && typeof values.pointsAwarded !== 'number') {
       values.pointsAwarded = Number(values.pointsAwarded);
     }
@@ -63,6 +63,7 @@ export const CandidateAnswerUpdate = () => {
       ...candidateAnswerEntity,
       ...values,
       examSession: examSessions.find(it => it.id.toString() === values.examSession?.toString()),
+      exercise: exercises.find(it => it.id.toString() === values.exercise?.toString()),
       question: questions.find(it => it.id.toString() === values.question?.toString()),
     };
 
@@ -82,6 +83,7 @@ export const CandidateAnswerUpdate = () => {
           ...candidateAnswerEntity,
           answeredAt: convertDateTimeFromServer(candidateAnswerEntity.answeredAt),
           examSession: candidateAnswerEntity?.examSession?.id,
+          exercise: candidateAnswerEntity?.exercise?.id,
           question: candidateAnswerEntity?.question?.id,
         };
 
@@ -116,13 +118,6 @@ export const CandidateAnswerUpdate = () => {
                 name="answerText"
                 data-cy="answerText"
                 type="textarea"
-              />
-              <ValidatedField
-                label={translate('skillVerifyApp.candidateAnswer.selectedOptionId')}
-                id="candidate-answer-selectedOptionId"
-                name="selectedOptionId"
-                data-cy="selectedOptionId"
-                type="text"
               />
               <ValidatedField
                 label={translate('skillVerifyApp.candidateAnswer.isCorrect')}
@@ -168,12 +163,31 @@ export const CandidateAnswerUpdate = () => {
                 <Translate contentKey="entity.validation.required">This field is required.</Translate>
               </FormText>
               <ValidatedField
+                id="candidate-answer-exercise"
+                name="exercise"
+                data-cy="exercise"
+                label={translate('skillVerifyApp.candidateAnswer.exercise')}
+                type="select"
+                required
+              >
+                <option value="" key="0" />
+                {exercises
+                  ? exercises.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <FormText>
+                <Translate contentKey="entity.validation.required">This field is required.</Translate>
+              </FormText>
+              <ValidatedField
                 id="candidate-answer-question"
                 name="question"
                 data-cy="question"
                 label={translate('skillVerifyApp.candidateAnswer.question')}
                 type="select"
-                required
               >
                 <option value="" key="0" />
                 {questions
@@ -184,9 +198,6 @@ export const CandidateAnswerUpdate = () => {
                     ))
                   : null}
               </ValidatedField>
-              <FormText>
-                <Translate contentKey="entity.validation.required">This field is required.</Translate>
-              </FormText>
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/candidate-answer" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;

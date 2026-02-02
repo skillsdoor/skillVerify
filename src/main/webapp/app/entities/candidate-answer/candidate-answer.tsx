@@ -118,10 +118,6 @@ export const CandidateAnswer = () => {
                   <Translate contentKey="skillVerifyApp.candidateAnswer.answerText">Answer Text</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('answerText')} />
                 </th>
-                <th className="hand" onClick={sort('selectedOptionId')}>
-                  <Translate contentKey="skillVerifyApp.candidateAnswer.selectedOptionId">Selected Option Id</Translate>{' '}
-                  <FontAwesomeIcon icon={getSortIconByFieldName('selectedOptionId')} />
-                </th>
                 <th className="hand" onClick={sort('isCorrect')}>
                   <Translate contentKey="skillVerifyApp.candidateAnswer.isCorrect">Is Correct</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('isCorrect')} />
@@ -139,6 +135,9 @@ export const CandidateAnswer = () => {
                   <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
+                  <Translate contentKey="skillVerifyApp.candidateAnswer.exercise">Exercise</Translate> <FontAwesomeIcon icon="sort" />
+                </th>
+                <th>
                   <Translate contentKey="skillVerifyApp.candidateAnswer.question">Question</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
@@ -153,7 +152,6 @@ export const CandidateAnswer = () => {
                     </Button>
                   </td>
                   <td>{candidateAnswer.answerText}</td>
-                  <td>{candidateAnswer.selectedOptionId}</td>
                   <td>{candidateAnswer.isCorrect ? 'true' : 'false'}</td>
                   <td>{candidateAnswer.pointsAwarded}</td>
                   <td>
@@ -164,6 +162,13 @@ export const CandidateAnswer = () => {
                   <td>
                     {candidateAnswer.examSession ? (
                       <Link to={`/exam-session/${candidateAnswer.examSession.id}`}>{candidateAnswer.examSession.id}</Link>
+                    ) : (
+                      ''
+                    )}
+                  </td>
+                  <td>
+                    {candidateAnswer.exercise ? (
+                      <Link to={`/exercise/${candidateAnswer.exercise.id}`}>{candidateAnswer.exercise.id}</Link>
                     ) : (
                       ''
                     )}

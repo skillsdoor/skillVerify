@@ -17,6 +17,13 @@
                                  referencedTableName="exam_session"
                                  />
 
+        <addForeignKeyConstraint baseColumnNames="exercise_id"
+                                 baseTableName="candidate_answer"
+                                 constraintName="fk_candidate_answer__exercise_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="exercise"
+                                 />
+
         <addForeignKeyConstraint baseColumnNames="question_id"
                                  baseTableName="candidate_answer"
                                  constraintName="fk_candidate_answer__question_id"

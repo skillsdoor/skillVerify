@@ -48,7 +48,6 @@ public class CandidateAnswerAsserts {
         assertThat(actual)
             .as("Verify CandidateAnswer relevant properties")
             .satisfies(a -> assertThat(a.getAnswerText()).as("check answerText").isEqualTo(expected.getAnswerText()))
-            .satisfies(a -> assertThat(a.getSelectedOptionId()).as("check selectedOptionId").isEqualTo(expected.getSelectedOptionId()))
             .satisfies(a -> assertThat(a.getIsCorrect()).as("check isCorrect").isEqualTo(expected.getIsCorrect()))
             .satisfies(a -> assertThat(a.getPointsAwarded()).as("check pointsAwarded").isEqualTo(expected.getPointsAwarded()))
             .satisfies(a -> assertThat(a.getAnsweredAt()).as("check answeredAt").isEqualTo(expected.getAnsweredAt()));
@@ -64,6 +63,7 @@ public class CandidateAnswerAsserts {
         assertThat(actual)
             .as("Verify CandidateAnswer relationships")
             .satisfies(a -> assertThat(a.getExamSession()).as("check examSession").isEqualTo(expected.getExamSession()))
+            .satisfies(a -> assertThat(a.getExercise()).as("check exercise").isEqualTo(expected.getExercise()))
             .satisfies(a -> assertThat(a.getQuestion()).as("check question").isEqualTo(expected.getQuestion()));
     }
 }

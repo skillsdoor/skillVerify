@@ -445,11 +445,11 @@ class CandidateResourceIT {
         partialUpdatedCandidate.setId(candidate.getId());
 
         partialUpdatedCandidate
+            .firstName(UPDATED_FIRST_NAME)
             .lastName(UPDATED_LAST_NAME)
-            .phone(UPDATED_PHONE)
             .bio(UPDATED_BIO)
-            .avatarUrl(UPDATED_AVATAR_URL)
-            .createdAt(UPDATED_CREATED_AT);
+            .resumeUrl(UPDATED_RESUME_URL)
+            .updatedAt(UPDATED_UPDATED_AT);
 
         restCandidateMockMvc
             .perform(

@@ -10,6 +10,13 @@
     -->
     <changeSet id="20260202134850-2" author="jhipster">
 
+        <addForeignKeyConstraint baseColumnNames="exercise_id"
+                                 baseTableName="media"
+                                 constraintName="fk_media__exercise_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="exercise"
+                                 />
+
         <addForeignKeyConstraint baseColumnNames="question_id"
                                  baseTableName="media"
                                  constraintName="fk_media__question_id"

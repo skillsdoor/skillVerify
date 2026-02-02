@@ -1,0 +1,26 @@
+{
+  "skillVerifyApp": {
+    "qcmAnswer": {
+      "home": {
+        "title": "QcmAnswers",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Qcm Answer",
+        "createOrEditLabel": "Créer ou éditer un Qcm Answer",
+        "notFound": "Aucun Qcm Answer trouvé"
+      },
+      "created": "Un nouveau Qcm Answer a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Qcm Answer avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Qcm Answer avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Qcm Answer {{ id }} ?"
+      },
+      "detail": {
+        "title": "Qcm Answer"
+      },
+      "id": "ID",
+      "isCorrect": "Is Correct",
+      "candidateAnswer": "Candidate Answer",
+      "qcmOption": "Qcm Option"
+    }
+  }
+}

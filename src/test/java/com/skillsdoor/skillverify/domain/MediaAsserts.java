@@ -65,6 +65,7 @@ public class MediaAsserts {
     public static void assertMediaUpdatableRelationshipsEquals(Media expected, Media actual) {
         assertThat(actual)
             .as("Verify Media relationships")
+            .satisfies(a -> assertThat(a.getExercise()).as("check exercise").isEqualTo(expected.getExercise()))
             .satisfies(a -> assertThat(a.getQuestion()).as("check question").isEqualTo(expected.getQuestion()));
     }
 }

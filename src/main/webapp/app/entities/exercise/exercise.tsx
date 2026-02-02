@@ -124,6 +124,14 @@ export const Exercise = () => {
                   <Translate contentKey="skillVerifyApp.exercise.instruction">Instruction</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('instruction')} />
                 </th>
+                <th className="hand" onClick={sort('content')}>
+                  <Translate contentKey="skillVerifyApp.exercise.content">Content</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('content')} />
+                </th>
+                <th className="hand" onClick={sort('explanation')}>
+                  <Translate contentKey="skillVerifyApp.exercise.explanation">Explanation</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('explanation')} />
+                </th>
                 <th className="hand" onClick={sort('points')}>
                   <Translate contentKey="skillVerifyApp.exercise.points">Points</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('points')} />
@@ -151,6 +159,8 @@ export const Exercise = () => {
                   </td>
                   <td>{exercise.title}</td>
                   <td>{exercise.instruction}</td>
+                  <td>{exercise.content}</td>
+                  <td>{exercise.explanation}</td>
                   <td>{exercise.points}</td>
                   <td>{exercise.orderIndex}</td>
                   <td>{exercise.exam ? <Link to={`/exam/${exercise.exam.id}`}>{exercise.exam.id}</Link> : ''}</td>

@@ -30,9 +30,6 @@ public class CandidateAnswer implements Serializable {
     @Column(name = "answer_text")
     private String answerText;
 
-    @Column(name = "selected_option_id")
-    private Long selectedOptionId;
-
     @Column(name = "is_correct")
     private Boolean isCorrect;
 
@@ -44,8 +41,18 @@ public class CandidateAnswer implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "candidateAnswer")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "candidateAnswer", "qcmOption" }, allowSetters = true)
+    private Set<QcmAnswer> qcmAnswers = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "candidateAnswer")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "candidateAnswer", "blankSpace" }, allowSetters = true)
+    private Set<BlankAnswer> blankAnswers = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "candidateAnswer")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "candidateAnswer" }, allowSetters = true)
-    private Set<BindListAnswer> bindListAnswers = new HashSet<>();
+    private Set<BindAnswer> bindAnswers = new HashSet<>();
 
     @ManyToOne(optional = false)
     @NotNull
@@ -55,10 +62,22 @@ public class CandidateAnswer implements Serializable {
     @ManyToOne(optional = false)
     @NotNull
     @JsonIgnoreProperties(
+        value = { "media", "qcmOptions", "blankSpaces", "listItems", "candidateAnswers", "exam", "questions" },
+        allowSetters = true
+    )
+    private Exercise exercise;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(
         value = { "media", "answerOptions", "fillInTheBlanks", "bindLists", "candidateAnswers", "exercise" },
         allowSetters = true
     )
     private Question question;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "candidateAnswer")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "candidateAnswer" }, allowSetters = true)
+    private Set<BindListAnswer> bindListAnswers = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -86,19 +105,6 @@ public class CandidateAnswer implements Serializable {
 
     public void setAnswerText(String answerText) {
         this.answerText = answerText;
-    }
-
-    public Long getSelectedOptionId() {
-        return this.selectedOptionId;
-    }
-
-    public CandidateAnswer selectedOptionId(Long selectedOptionId) {
-        this.setSelectedOptionId(selectedOptionId);
-        return this;
-    }
-
-    public void setSelectedOptionId(Long selectedOptionId) {
-        this.selectedOptionId = selectedOptionId;
     }
 
     public Boolean getIsCorrect() {
@@ -140,6 +146,138 @@ public class CandidateAnswer implements Serializable {
         this.answeredAt = answeredAt;
     }
 
+    public Set<QcmAnswer> getQcmAnswers() {
+        return this.qcmAnswers;
+    }
+
+    public void setQcmAnswers(Set<QcmAnswer> qcmAnswers) {
+        if (this.qcmAnswers != null) {
+            this.qcmAnswers.forEach(i -> i.setCandidateAnswer(null));
+        }
+        if (qcmAnswers != null) {
+            qcmAnswers.forEach(i -> i.setCandidateAnswer(this));
+        }
+        this.qcmAnswers = qcmAnswers;
+    }
+
+    public CandidateAnswer qcmAnswers(Set<QcmAnswer> qcmAnswers) {
+        this.setQcmAnswers(qcmAnswers);
+        return this;
+    }
+
+    public CandidateAnswer addQcmAnswers(QcmAnswer qcmAnswer) {
+        this.qcmAnswers.add(qcmAnswer);
+        qcmAnswer.setCandidateAnswer(this);
+        return this;
+    }
+
+    public CandidateAnswer removeQcmAnswers(QcmAnswer qcmAnswer) {
+        this.qcmAnswers.remove(qcmAnswer);
+        qcmAnswer.setCandidateAnswer(null);
+        return this;
+    }
+
+    public Set<BlankAnswer> getBlankAnswers() {
+        return this.blankAnswers;
+    }
+
+    public void setBlankAnswers(Set<BlankAnswer> blankAnswers) {
+        if (this.blankAnswers != null) {
+            this.blankAnswers.forEach(i -> i.setCandidateAnswer(null));
+        }
+        if (blankAnswers != null) {
+            blankAnswers.forEach(i -> i.setCandidateAnswer(this));
+        }
+        this.blankAnswers = blankAnswers;
+    }
+
+    public CandidateAnswer blankAnswers(Set<BlankAnswer> blankAnswers) {
+        this.setBlankAnswers(blankAnswers);
+        return this;
+    }
+
+    public CandidateAnswer addBlankAnswers(BlankAnswer blankAnswer) {
+        this.blankAnswers.add(blankAnswer);
+        blankAnswer.setCandidateAnswer(this);
+        return this;
+    }
+
+    public CandidateAnswer removeBlankAnswers(BlankAnswer blankAnswer) {
+        this.blankAnswers.remove(blankAnswer);
+        blankAnswer.setCandidateAnswer(null);
+        return this;
+    }
+
+    public Set<BindAnswer> getBindAnswers() {
+        return this.bindAnswers;
+    }
+
+    public void setBindAnswers(Set<BindAnswer> bindAnswers) {
+        if (this.bindAnswers != null) {
+            this.bindAnswers.forEach(i -> i.setCandidateAnswer(null));
+        }
+        if (bindAnswers != null) {
+            bindAnswers.forEach(i -> i.setCandidateAnswer(this));
+        }
+        this.bindAnswers = bindAnswers;
+    }
+
+    public CandidateAnswer bindAnswers(Set<BindAnswer> bindAnswers) {
+        this.setBindAnswers(bindAnswers);
+        return this;
+    }
+
+    public CandidateAnswer addBindAnswers(BindAnswer bindAnswer) {
+        this.bindAnswers.add(bindAnswer);
+        bindAnswer.setCandidateAnswer(this);
+        return this;
+    }
+
+    public CandidateAnswer removeBindAnswers(BindAnswer bindAnswer) {
+        this.bindAnswers.remove(bindAnswer);
+        bindAnswer.setCandidateAnswer(null);
+        return this;
+    }
+
+    public ExamSession getExamSession() {
+        return this.examSession;
+    }
+
+    public void setExamSession(ExamSession examSession) {
+        this.examSession = examSession;
+    }
+
+    public CandidateAnswer examSession(ExamSession examSession) {
+        this.setExamSession(examSession);
+        return this;
+    }
+
+    public Exercise getExercise() {
+        return this.exercise;
+    }
+
+    public void setExercise(Exercise exercise) {
+        this.exercise = exercise;
+    }
+
+    public CandidateAnswer exercise(Exercise exercise) {
+        this.setExercise(exercise);
+        return this;
+    }
+
+    public Question getQuestion() {
+        return this.question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
+    }
+
+    public CandidateAnswer question(Question question) {
+        this.setQuestion(question);
+        return this;
+    }
+
     public Set<BindListAnswer> getBindListAnswers() {
         return this.bindListAnswers;
     }
@@ -171,32 +309,6 @@ public class CandidateAnswer implements Serializable {
         return this;
     }
 
-    public ExamSession getExamSession() {
-        return this.examSession;
-    }
-
-    public void setExamSession(ExamSession examSession) {
-        this.examSession = examSession;
-    }
-
-    public CandidateAnswer examSession(ExamSession examSession) {
-        this.setExamSession(examSession);
-        return this;
-    }
-
-    public Question getQuestion() {
-        return this.question;
-    }
-
-    public void setQuestion(Question question) {
-        this.question = question;
-    }
-
-    public CandidateAnswer question(Question question) {
-        this.setQuestion(question);
-        return this;
-    }
-
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -222,7 +334,6 @@ public class CandidateAnswer implements Serializable {
         return "CandidateAnswer{" +
             "id=" + getId() +
             ", answerText='" + getAnswerText() + "'" +
-            ", selectedOptionId=" + getSelectedOptionId() +
             ", isCorrect='" + getIsCorrect() + "'" +
             ", pointsAwarded=" + getPointsAwarded() +
             ", answeredAt='" + getAnsweredAt() + "'" +

@@ -35,6 +35,9 @@
             <column name="uploaded_at" type="${datetimeType}">
                 <constraints nullable="true" />
             </column>
+            <column name="exercise_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <column name="question_id" type="bigint">
                 <constraints nullable="true" />
             </column>

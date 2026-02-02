@@ -1,5 +1,6 @@
 package com.skillsdoor.skillverify.domain;
 
+import static com.skillsdoor.skillverify.domain.ExerciseTestSamples.*;
 import static com.skillsdoor.skillverify.domain.MediaTestSamples.*;
 import static com.skillsdoor.skillverify.domain.QuestionTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -21,6 +22,18 @@ class MediaTest {
 
         media2 = getMediaSample2();
         assertThat(media1).isNotEqualTo(media2);
+    }
+
+    @Test
+    void exerciseTest() {
+        Media media = getMediaRandomSampleGenerator();
+        Exercise exerciseBack = getExerciseRandomSampleGenerator();
+
+        media.setExercise(exerciseBack);
+        assertThat(media.getExercise()).isEqualTo(exerciseBack);
+
+        media.exercise(null);
+        assertThat(media.getExercise()).isNull();
     }
 
     @Test

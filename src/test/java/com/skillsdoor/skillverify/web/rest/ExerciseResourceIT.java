@@ -45,6 +45,12 @@ class ExerciseResourceIT {
     private static final String DEFAULT_INSTRUCTION = "AAAAAAAAAA";
     private static final String UPDATED_INSTRUCTION = "BBBBBBBBBB";
 
+    private static final String DEFAULT_CONTENT = "AAAAAAAAAA";
+    private static final String UPDATED_CONTENT = "BBBBBBBBBB";
+
+    private static final String DEFAULT_EXPLANATION = "AAAAAAAAAA";
+    private static final String UPDATED_EXPLANATION = "BBBBBBBBBB";
+
     private static final Integer DEFAULT_POINTS = 1;
     private static final Integer UPDATED_POINTS = 2;
 
@@ -87,6 +93,8 @@ class ExerciseResourceIT {
             .type(DEFAULT_TYPE)
             .title(DEFAULT_TITLE)
             .instruction(DEFAULT_INSTRUCTION)
+            .content(DEFAULT_CONTENT)
+            .explanation(DEFAULT_EXPLANATION)
             .points(DEFAULT_POINTS)
             .orderIndex(DEFAULT_ORDER_INDEX);
         // Add required entity
@@ -113,6 +121,8 @@ class ExerciseResourceIT {
             .type(UPDATED_TYPE)
             .title(UPDATED_TITLE)
             .instruction(UPDATED_INSTRUCTION)
+            .content(UPDATED_CONTENT)
+            .explanation(UPDATED_EXPLANATION)
             .points(UPDATED_POINTS)
             .orderIndex(UPDATED_ORDER_INDEX);
         // Add required entity
@@ -266,6 +276,8 @@ class ExerciseResourceIT {
             .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE.toString())))
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)))
             .andExpect(jsonPath("$.[*].instruction").value(hasItem(DEFAULT_INSTRUCTION)))
+            .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT)))
+            .andExpect(jsonPath("$.[*].explanation").value(hasItem(DEFAULT_EXPLANATION)))
             .andExpect(jsonPath("$.[*].points").value(hasItem(DEFAULT_POINTS)))
             .andExpect(jsonPath("$.[*].orderIndex").value(hasItem(DEFAULT_ORDER_INDEX)));
     }
@@ -285,6 +297,8 @@ class ExerciseResourceIT {
             .andExpect(jsonPath("$.type").value(DEFAULT_TYPE.toString()))
             .andExpect(jsonPath("$.title").value(DEFAULT_TITLE))
             .andExpect(jsonPath("$.instruction").value(DEFAULT_INSTRUCTION))
+            .andExpect(jsonPath("$.content").value(DEFAULT_CONTENT))
+            .andExpect(jsonPath("$.explanation").value(DEFAULT_EXPLANATION))
             .andExpect(jsonPath("$.points").value(DEFAULT_POINTS))
             .andExpect(jsonPath("$.orderIndex").value(DEFAULT_ORDER_INDEX));
     }
@@ -312,6 +326,8 @@ class ExerciseResourceIT {
             .type(UPDATED_TYPE)
             .title(UPDATED_TITLE)
             .instruction(UPDATED_INSTRUCTION)
+            .content(UPDATED_CONTENT)
+            .explanation(UPDATED_EXPLANATION)
             .points(UPDATED_POINTS)
             .orderIndex(UPDATED_ORDER_INDEX);
         ExerciseDTO exerciseDTO = exerciseMapper.toDto(updatedExercise);
@@ -403,7 +419,7 @@ class ExerciseResourceIT {
         Exercise partialUpdatedExercise = new Exercise();
         partialUpdatedExercise.setId(exercise.getId());
 
-        partialUpdatedExercise.type(UPDATED_TYPE).title(UPDATED_TITLE).points(UPDATED_POINTS);
+        partialUpdatedExercise.instruction(UPDATED_INSTRUCTION).points(UPDATED_POINTS);
 
         restExerciseMockMvc
             .perform(
@@ -435,6 +451,8 @@ class ExerciseResourceIT {
             .type(UPDATED_TYPE)
             .title(UPDATED_TITLE)
             .instruction(UPDATED_INSTRUCTION)
+            .content(UPDATED_CONTENT)
+            .explanation(UPDATED_EXPLANATION)
             .points(UPDATED_POINTS)
             .orderIndex(UPDATED_ORDER_INDEX);
 

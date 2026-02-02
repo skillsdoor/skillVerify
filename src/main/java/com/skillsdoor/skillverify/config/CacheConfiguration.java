@@ -76,6 +76,22 @@ public class CacheConfiguration {
             createCache(cm, com.skillsdoor.skillverify.domain.CandidateAnswer.class.getName());
             createCache(cm, com.skillsdoor.skillverify.domain.CandidateAnswer.class.getName() + ".bindListAnswers");
             createCache(cm, com.skillsdoor.skillverify.domain.BindListAnswer.class.getName());
+            createCache(cm, com.skillsdoor.skillverify.domain.Exercise.class.getName() + ".media");
+            createCache(cm, com.skillsdoor.skillverify.domain.Exercise.class.getName() + ".qcmOptions");
+            createCache(cm, com.skillsdoor.skillverify.domain.Exercise.class.getName() + ".blankSpaces");
+            createCache(cm, com.skillsdoor.skillverify.domain.Exercise.class.getName() + ".listItems");
+            createCache(cm, com.skillsdoor.skillverify.domain.Exercise.class.getName() + ".candidateAnswers");
+            createCache(cm, com.skillsdoor.skillverify.domain.CandidateAnswer.class.getName() + ".qcmAnswers");
+            createCache(cm, com.skillsdoor.skillverify.domain.CandidateAnswer.class.getName() + ".blankAnswers");
+            createCache(cm, com.skillsdoor.skillverify.domain.CandidateAnswer.class.getName() + ".bindAnswers");
+            createCache(cm, com.skillsdoor.skillverify.domain.QcmOption.class.getName());
+            createCache(cm, com.skillsdoor.skillverify.domain.QcmOption.class.getName() + ".qcmAnswers");
+            createCache(cm, com.skillsdoor.skillverify.domain.BlankSpace.class.getName());
+            createCache(cm, com.skillsdoor.skillverify.domain.BlankSpace.class.getName() + ".blankAnswers");
+            createCache(cm, com.skillsdoor.skillverify.domain.ListItem.class.getName());
+            createCache(cm, com.skillsdoor.skillverify.domain.QcmAnswer.class.getName());
+            createCache(cm, com.skillsdoor.skillverify.domain.BlankAnswer.class.getName());
+            createCache(cm, com.skillsdoor.skillverify.domain.BindAnswer.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

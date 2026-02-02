@@ -39,12 +39,6 @@ export const CandidateAnswerDetail = () => {
           </dt>
           <dd>{candidateAnswerEntity.answerText}</dd>
           <dt>
-            <span id="selectedOptionId">
-              <Translate contentKey="skillVerifyApp.candidateAnswer.selectedOptionId">Selected Option Id</Translate>
-            </span>
-          </dt>
-          <dd>{candidateAnswerEntity.selectedOptionId}</dd>
-          <dt>
             <span id="isCorrect">
               <Translate contentKey="skillVerifyApp.candidateAnswer.isCorrect">Is Correct</Translate>
             </span>
@@ -70,6 +64,10 @@ export const CandidateAnswerDetail = () => {
             <Translate contentKey="skillVerifyApp.candidateAnswer.examSession">Exam Session</Translate>
           </dt>
           <dd>{candidateAnswerEntity.examSession ? candidateAnswerEntity.examSession.id : ''}</dd>
+          <dt>
+            <Translate contentKey="skillVerifyApp.candidateAnswer.exercise">Exercise</Translate>
+          </dt>
+          <dd>{candidateAnswerEntity.exercise ? candidateAnswerEntity.exercise.id : ''}</dd>
           <dt>
             <Translate contentKey="skillVerifyApp.candidateAnswer.question">Question</Translate>
           </dt>

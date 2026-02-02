@@ -142,6 +142,9 @@ export const Media = () => {
                   <FontAwesomeIcon icon={getSortIconByFieldName('uploadedAt')} />
                 </th>
                 <th>
+                  <Translate contentKey="skillVerifyApp.media.exercise">Exercise</Translate> <FontAwesomeIcon icon="sort" />
+                </th>
+                <th>
                   <Translate contentKey="skillVerifyApp.media.question">Question</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
@@ -164,6 +167,7 @@ export const Media = () => {
                   <td>{media.fileSize}</td>
                   <td>{media.mimeType}</td>
                   <td>{media.uploadedAt ? <TextFormat type="date" value={media.uploadedAt} format={APP_DATE_FORMAT} /> : null}</td>
+                  <td>{media.exercise ? <Link to={`/exercise/${media.exercise.id}`}>{media.exercise.id}</Link> : ''}</td>
                   <td>{media.question ? <Link to={`/question/${media.question.id}`}>{media.question.id}</Link> : ''}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">

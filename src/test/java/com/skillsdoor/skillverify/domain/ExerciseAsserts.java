@@ -50,6 +50,8 @@ public class ExerciseAsserts {
             .satisfies(a -> assertThat(a.getType()).as("check type").isEqualTo(expected.getType()))
             .satisfies(a -> assertThat(a.getTitle()).as("check title").isEqualTo(expected.getTitle()))
             .satisfies(a -> assertThat(a.getInstruction()).as("check instruction").isEqualTo(expected.getInstruction()))
+            .satisfies(a -> assertThat(a.getContent()).as("check content").isEqualTo(expected.getContent()))
+            .satisfies(a -> assertThat(a.getExplanation()).as("check explanation").isEqualTo(expected.getExplanation()))
             .satisfies(a -> assertThat(a.getPoints()).as("check points").isEqualTo(expected.getPoints()))
             .satisfies(a -> assertThat(a.getOrderIndex()).as("check orderIndex").isEqualTo(expected.getOrderIndex()));
     }

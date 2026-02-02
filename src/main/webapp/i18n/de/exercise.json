@@ -21,10 +21,17 @@
       "type": "Type",
       "title": "Title",
       "instruction": "Instruction",
+      "content": "Content",
+      "explanation": "Explanation",
       "points": "Points",
       "orderIndex": "Order Index",
-      "questions": "Questions",
-      "exam": "Exam"
+      "media": "Media",
+      "qcmOptions": "Qcm Options",
+      "blankSpaces": "Blank Spaces",
+      "listItems": "List Items",
+      "candidateAnswers": "Candidate Answers",
+      "exam": "Exam",
+      "questions": "Questions"
     }
   }
 }

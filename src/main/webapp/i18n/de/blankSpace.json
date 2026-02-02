@@ -1,0 +1,29 @@
+{
+  "skillVerifyApp": {
+    "blankSpace": {
+      "home": {
+        "title": "Blank Spaces",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Blank Space erstellen",
+        "createOrEditLabel": "Blank Space erstellen oder bearbeiten",
+        "notFound": "Keine Blank Spaces gefunden"
+      },
+      "created": "Blank Space erstellt mit ID {{ param }}",
+      "updated": "Blank Space aktualisiert mit ID {{ param }}",
+      "deleted": "Blank Space gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Blank Space {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Blank Space"
+      },
+      "id": "ID",
+      "position": "Position",
+      "correctAnswer": "Correct Answer",
+      "caseSensitive": "Case Sensitive",
+      "orderIndex": "Order Index",
+      "blankAnswers": "Blank Answers",
+      "exercise": "Exercise"
+    }
+  }
+}

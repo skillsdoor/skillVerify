@@ -25,6 +25,7 @@
       "fileSize": "File Size",
       "mimeType": "Mime Type",
       "uploadedAt": "Uploaded At",
+      "exercise": "Exercise",
       "question": "Question"
     }
   }

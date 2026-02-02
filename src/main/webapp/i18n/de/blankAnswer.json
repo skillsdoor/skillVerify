@@ -1,0 +1,27 @@
+{
+  "skillVerifyApp": {
+    "blankAnswer": {
+      "home": {
+        "title": "Blank Answers",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Blank Answer erstellen",
+        "createOrEditLabel": "Blank Answer erstellen oder bearbeiten",
+        "notFound": "Keine Blank Answers gefunden"
+      },
+      "created": "Blank Answer erstellt mit ID {{ param }}",
+      "updated": "Blank Answer aktualisiert mit ID {{ param }}",
+      "deleted": "Blank Answer gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Blank Answer {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Blank Answer"
+      },
+      "id": "ID",
+      "answerText": "Answer Text",
+      "isCorrect": "Is Correct",
+      "candidateAnswer": "Candidate Answer",
+      "blankSpace": "Blank Space"
+    }
+  }
+}

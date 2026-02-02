@@ -1,0 +1,28 @@
+{
+  "skillVerifyApp": {
+    "listItem": {
+      "home": {
+        "title": "ListItems",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau List Item",
+        "createOrEditLabel": "Créer ou éditer un List Item",
+        "notFound": "Aucun List Item trouvé"
+      },
+      "created": "Un nouveau List Item a été créé avec l'identifiant {{ param }}",
+      "updated": "Le List Item avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le List Item avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le List Item {{ id }} ?"
+      },
+      "detail": {
+        "title": "List Item"
+      },
+      "id": "ID",
+      "content": "Content",
+      "matchingContent": "Matching Content",
+      "isLeftSide": "Is Left Side",
+      "orderIndex": "Order Index",
+      "exercise": "Exercise"
+    }
+  }
+}

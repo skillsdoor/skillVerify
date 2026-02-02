@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { Button, Col, Row } from 'reactstrap';
+import { Button, Card, CardBody, Col, Row } from 'reactstrap';
 import { Translate, ValidatedField, ValidatedForm, isNumber, translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -9,6 +9,7 @@ import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getRecruiters } from 'app/entities/recruiter/recruiter.reducer';
 import { getEntities as getTrainingProviders } from 'app/entities/training-provider/training-provider.reducer';
+import { getEntities as getExercises } from 'app/entities/exercise/exercise.reducer';
 import { ExamStatus } from 'app/shared/model/enumerations/exam-status.model';
 import { TestType } from 'app/shared/model/enumerations/test-type.model';
 import { createEntity, getEntity, reset, updateEntity } from './exam.reducer';
@@ -23,12 +24,15 @@ export const ExamUpdate = () => {
 
   const recruiters = useAppSelector(state => state.recruiter.entities);
   const trainingProviders = useAppSelector(state => state.trainingProvider.entities);
+  const exercises = useAppSelector(state => state.exercise.entities);
   const examEntity = useAppSelector(state => state.exam.entity);
   const loading = useAppSelector(state => state.exam.loading);
   const updating = useAppSelector(state => state.exam.updating);
   const updateSuccess = useAppSelector(state => state.exam.updateSuccess);
   const examStatusValues = Object.keys(ExamStatus);
   const testTypeValues = Object.keys(TestType);
+
+  const [selectedExercises, setSelectedExercises] = useState<number[]>([]);
 
   const handleClose = () => {
     navigate(`/exam${location.search}`);
@@ -43,7 +47,14 @@ export const ExamUpdate = () => {
 
     dispatch(getRecruiters({}));
     dispatch(getTrainingProviders({}));
+    dispatch(getExercises({}));
   }, []);
+
+  useEffect(() => {
+    if (examEntity?.exercises && examEntity.exercises.length > 0) {
+      setSelectedExercises(examEntity.exercises.map(ex => ex.id));
+    }
+  }, [examEntity?.id]);
 
   useEffect(() => {
     if (updateSuccess) {
@@ -70,6 +81,7 @@ export const ExamUpdate = () => {
       ...values,
       recruiter: recruiters.find(it => it.id.toString() === values.recruiter?.toString()),
       trainingProvider: trainingProviders.find(it => it.id.toString() === values.trainingProvider?.toString()),
+      exercises: selectedExercises.map(exId => exercises.find(ex => ex.id === exId)).filter(Boolean),
     };
 
     if (isNew) {
@@ -237,6 +249,43 @@ export const ExamUpdate = () => {
                     ))
                   : null}
               </ValidatedField>
+              <Card className="mb-3">
+                <CardBody>
+                  <h5 className="mb-3">Exercises</h5>
+                  <div className="mb-3">
+                    <Button color="success" size="sm" tag={Link} to="/exercise/new" target="_blank">
+                      <FontAwesomeIcon icon="plus" /> Create New Exercise
+                    </Button>
+                  </div>
+                  <div className="border rounded p-3" style={{ maxHeight: '300px', overflowY: 'auto' }}>
+                    {exercises && exercises.length > 0 ? (
+                      exercises.map(exercise => (
+                        <div key={exercise.id} className="form-check mb-2">
+                          <input
+                            type="checkbox"
+                            className="form-check-input"
+                            id={`exercise-${exercise.id}`}
+                            checked={selectedExercises.includes(exercise.id)}
+                            onChange={e => {
+                              if (e.target.checked) {
+                                setSelectedExercises([...selectedExercises, exercise.id]);
+                              } else {
+                                setSelectedExercises(selectedExercises.filter(exId => exId !== exercise.id));
+                              }
+                            }}
+                          />
+                          <label className="form-check-label" htmlFor={`exercise-${exercise.id}`}>
+                            <strong>{exercise.title}</strong> - {exercise.type} ({exercise.points} points)
+                          </label>
+                        </div>
+                      ))
+                    ) : (
+                      <p className="text-muted">No exercises available</p>
+                    )}
+                  </div>
+                  <small className="text-muted">{selectedExercises.length} exercise(s) selected</small>
+                </CardBody>
+              </Card>
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/exam" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;

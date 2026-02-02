@@ -75,6 +75,10 @@ export const MediaDetail = () => {
           </dt>
           <dd>{mediaEntity.uploadedAt ? <TextFormat value={mediaEntity.uploadedAt} type="date" format={APP_DATE_FORMAT} /> : null}</dd>
           <dt>
+            <Translate contentKey="skillVerifyApp.media.exercise">Exercise</Translate>
+          </dt>
+          <dd>{mediaEntity.exercise ? mediaEntity.exercise.id : ''}</dd>
+          <dt>
             <Translate contentKey="skillVerifyApp.media.question">Question</Translate>
           </dt>
           <dd>{mediaEntity.question ? mediaEntity.question.id : ''}</dd>
